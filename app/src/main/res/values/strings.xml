@@ -16,7 +16,6 @@
         <item>Ingeniería Administrativa</item>
         <item>Ingeniería Financiera</item>
         <item>Fisica</item>
-        <item>Medicina</item>
         <item>Ingeniería Geologica</item>
         <item>Ingeniería Industrial</item>
         <item>Ingeniería Mecanica</item>
@@ -86,24 +85,24 @@
 
     <string-array name="mAdministrativa">
 
-        Gestión de la Cadena de Abastecimiento
-        Administración Pública
-        Gestión Humana
-        Gerencia Estratégica
-        Gerencia Estratégica
-        Innovación y Gestión de la Tecnología
-        Gerencia de Procesos
-        Gestión de Negocios Tecnológicos
-        Gerencia de proyectos
-        Emprendimiento
-        Fundamentos de Mercadeo
-        Distribución Local e Internacional
-        Comportamiento del Consumidor
-        Negociación y Ventas
-        Negocios Internacionales
-        Mercadeo internacional
-        Negocios Electrónicos
-        Gerencia de Marca
+        <item>Gestión de la Cadena de Abastecimiento</item>
+        <item>Administración Pública</item>
+        <item>Gestión Humana</item>
+        <item>Gerencia Estratégica</item>
+        <item>Gerencia Estratégica</item>
+        <item>Innovación y Gestión de la Tecnología</item>
+        <item>Gerencia de Procesos</item>
+        <item>Gestión de Negocios Tecnológicos</item>
+        <item>Gerencia de proyectos</item>        
+        <item>Emprendimiento</item>
+        <item>Fundamentos de Mercadeo</item>
+        <item>Distribución Local e Internacional</item>
+        <item>Comportamiento del Consumidor</item>
+        <item>Negociación y Ventas</item>
+        <item>Negocios Internacionales</item>
+        <item>Mercadeo internacional</item>
+        <item>Negocios Electrónicos</item>
+        <item>Gerencia de Marca</item>
     </string-array>
 
     <string-array name="mAmbiental">
@@ -119,174 +118,171 @@
     </string-array>
 
     <string-array name="mBiomedica">
-        Microbiología
-        Ecología
-        Biodiversidad
-        Biología Celular
-        Biología Molecular
-        Morfofisiología I
-        Morfofisiología II
-        Biotecnología Ambiental
-        Ingeniería de Rehabilitación
-        Entorno Hospitalario
-        Gestión de Tecnología en Salud
-        Adquisición y procesamiento de señales
-        Procesamiento digital de señales e imágenes-
-        Biomecánica
-        Modelos y Simulación Biomédica
-        Dispositivos Médicos
-        Metrología Biomédica
-        Bioinformática
-        Biotecnologia en Salud
-        Biomateriales
+        <item>Microbiología</item>
+        <item>Ecología</item>
+        <item>Biodiversidad</item>
+        <item>Biología Celular</item>
+        <item>Biología Molecular</item>
+        <item>Morfofisiología I</item>
+        <item>Morfofisiología II</item>
+        <item>Biotecnología Ambiental</item>
+        <item>Ingeniería de Rehabilitación</item>
+        <item>Entorno Hospitalario</item>
+        <item>Gestión de Tecnología en Salud</item>
+        <item>Adquisición y procesamiento de señales</item>
+        <item>Procesamiento digital de señales e imágenes</item>
+        <item>Biomecánica</item>
+        <item>Modelos y Simulación Biomédica</item>
+        <item>Dispositivos Médicos</item>
+        <item>Metrología Biomédica</item>
+        <item>Bioinformática</item>
+        <item>Biotecnologia en Salud</item>
+        <item>Biomateriales</item>
 
     </string-array>
 
     <string-array name="mCivil">
-        Diseño de Elementos de Hormigón
-        Análisis de Estructuras
-        Materiales de Construcción
-        Construcción de Edificaciones
-        Diseño Sismorresistente
-        Construcción de Vías
-        BIM (Modelación de la Gestión de la Construcción)
-        Supervisión técnica en construcción
-        Hidráulica I Civil
-        Hidráulica
-        Mecánica de Fluidos
-        Mecánica de Biofluidos
-        Hidroclimatología
-        Suministro y Disposición de Aguas
-        Gestión del Territorio
-        Tránsito y Transporte
-        Información Georreferenciada
-        Fotointerpretación
-        Topografía
-        Diseño de Vías
+        <item>Diseño de Elementos de Hormigón</item>
+        <item>Análisis de Estructuras</item>
+        <item>Materiales de Construcción</item>
+        <item>Construcción de Edificaciones</item>
+        <item>Diseño Sismorresistente</item>
+        <item>Construcción de Vías</item>
+        <item>BIM (Modelación de la Gestión de la Construcción)</item>
+        <item>Supervisión técnica en construcción</item>
+        <item>Hidráulica I Civil</item>
+        <item>Hidráulica</item>
+        <item>Mecánica de Fluidos</item>
+        <item>Mecánica de Biofluidos</item>
+        <item>Hidroclimatología</item>
+        <item>Suministro y Disposición de Aguas</item>
+        <item>Gestión del Territorio</item>
+        <item>Tránsito y Transporte</item>
+        <item>Información Georreferenciada</item>
+        <item>Fotointerpretación</item>
+        <item>Topografía</item>
+        <item>Diseño de Vías</item>
 
     </string-array>
 
     <string-array name="mFinanciera">
-        Microeconomía
-        Macroeconomía
-        Economía Internacional
-        Contabilidad
-        Costos
-        Administración Financiera
-        Matemática Financiera
-        Finanzas Corporativas
-        Preparación y Evaluación de Proyectos
-        Banca y Mercado de Capitales
-        Renta Fija
-        Renta Variable
-        Introducción a los Riesgos Financieros
-        Econometría
-        Teoría de Portafolios
-        Derivados
-        Riesgo de Mercado
-        Riesgo de Liquidez
-        Riesgo Crédito
-        Riesgo Operativo
-        Finanzas Públicas
+        <item>Microeconomía</item>
+        <item>Macroeconomía</item>
+        <item>Economía Internacional</item>
+        <item>Contabilidad<item>
+        <item>Costos</item>
+        <item>Administración Financiera</item>
+        <item>Matemática Financiera</item>
+        <item>Finanzas Corporativas</item>
+        <item>Preparación y Evaluación de Proyectos</item>
+        <item>Banca y Mercado de Capitales</item>
+        <item>Renta Fija</item>
+        <item>Renta Variable</item>
+        <item>Introducción a los Riesgos Financieros</item>
+        <item>Econometría</item>
+        <item>Teoría de Portafolios</item>
+        <item>Derivados</item>
+        <item>Riesgo de Mercado</item>
+        <item>Riesgo de Liquidez</item>
+        <item>Riesgo Crédito</item>
+        <item>Riesgo Operativo</item>
+        <item>Finanzas Públicas</item>
 
     </string-array>
 
     <string-array name="mGeologica">
-        Ciencia del Suelo
-        Geología
-        Cimentaciones
-        Procesos Geológicos
-        Física y Química Mineral
-        Geología del petróleo
-        Yacimientos
-        Exploración y Explotación de Materiales
-        Petrología ígnea y metamórfica
-        Geología Estructural
-        Petrología sedimentaria
-        Geomorfología
-        Mecánica de Rocas
-        Geología de Colombia
-        Diseño de Pavimentos
-        Gestión Integral del Riesgo
-        Geología Económica
-        Estabilidad de Taludes
-        Física y Mecánica del Suelo
-        Hidrogeología
-        Geología de Campo y Cartografía
-
+        <item>Ciencia del Suelo</item>
+        <item>Geología</item>
+        <item>Cimentaciones</item>
+        <item>Procesos Geológicos</item>
+        <item>Física y Química Mineral</item>
+        <item>Geología del petróleo</item>
+        <item>Yacimientos</item>
+        <item>Exploración y Explotación de Materiales</item>
+        <item>Petrología ígnea y metamórfica</item>
+        <item>Geología Estructural</item>
+        <item>Petrología sedimentaria</item>
+        <item>Geomorfología</item>
+        <item>Mecánica de Rocas</item>
+        <item>Geología de Colombia</item>
+        <item>Diseño de Pavimentos</item>
+        <item>Gestión Integral del Riesgo</item>
+        <item>Geología Económica</item>
+        <item>Estabilidad de Taludes</item>
+        <item>Física y Mecánica del Suelo</item>
+        <item>Hidrogeología</item>
+        <item>Geología de Campo y Cartografía</item>
     </string-array>
 
     <string-array name="mIndustrial">
-        Administración de Operaciones
-        Gestión de Operaciones
-        Logística
-        Diseño de Instalaciones
-        Diseño y Desarrollo de Bienes y Servicios
-        Estudio del Trabajo
-        Control Estadístico de Procesos
-        Manufactura Esbelta
-        Factor Humano
-        Cadenas de Abastecimiento Digitales
-        Logística Internacional
-        Teoría de Restricciones
-        Modelos y Simulación
-        Modelos y Simulación Empresarial
-        Modelos y Simulación de Sistemas
-        Modelos y Simulación de Sistemas Mecánicos
-        Modelos y Simulación Numérica
-        Toma de Decisiones
-        Procesos Estocásticos
-        Modelos y Simulación Financiera
-
+        <item>Administración de Operaciones</item>
+        <item>Gestión de Operaciones</item>
+        <item>Logística</item>
+        <item>Diseño de Instalaciones</item>
+        <item>Diseño y Desarrollo de Bienes y Servicios</item>
+        <item>Estudio del Trabajo</item>
+        <item>Control Estadístico de Procesos</item>
+        <item>Manufactura Esbelta</item>
+        <item>Factor Humano</item>
+        <item>Cadenas de Abastecimiento Digitales</item>
+        <item>Logística Internacional</item>
+        <item>Teoría de Restricciones</item>
+        <item>Modelos y Simulación</item>
+        <item>Modelos y Simulación Empresarial</item>
+        <item>Modelos y Simulación de Sistemas</item>
+        <item>Modelos y Simulación de Sistemas Mecánicos</item>
+        <item>Modelos y Simulación Numérica</item>
+        <item>Toma de Decisiones</item>
+        <item>Procesos Estocásticos</item>
+        <item>Modelos y Simulación Financiera</item>
     </string-array>
 
     <string-array name="mMecanica">
-        Ciencia de los Materiales
-        Deformación y Remoción de material
-        Unión y Solidificación de Materiales
-        Diseño Asistido por Computador
-        Procesos de Transformación Industrial
-        Mecánica y Procesos de Transformación
-        Mecánica de Materiales
-        Diseño Mecánico
-        Diseño de Mecanismos
-        Diseño de Elementos de Máquinas
-        Sistemas Mecánicos
-        Gestión del Mantenimiento Industrial
-        Dibujo de Elementos de Máquinas
-        Elementos de Máquinas
-        Termodinámica y Mecánica de Fluidos
-        Termodinámica
-        Transferencia de Calor
-        Procesos y Sistemas Térmicos
-        Diseño de Sistemas Térmicos
-        Máquinas Térmicas
-        Energías Alternativas
-        Motores de Combustión Interna
-
+        <item>Ciencia de los Materiales</item>
+        <item>Deformación y Remoción de material</item>
+        <item>Unión y Solidificación de Materiales</item>
+        <item>Diseño Asistido por Computador</item>
+        <item>Procesos de Transformación Industrial</item>
+        <item>Mecánica y Procesos de Transformación</item>
+        <item>Mecánica de Materiales</item>
+        <item>Diseño Mecánico</item>
+        <item>Diseño de Mecanismos</item>
+        <item>Diseño de Elementos de Máquinas</item>
+        <item>Sistemas Mecánicos</item>
+        <item>Gestión del Mantenimiento Industrial</item>
+        <item>Dibujo de Elementos de Máquinas</item>
+        <item>Elementos de Máquinas</item>
+        <item>Termodinámica y Mecánica de Fluidos</item>
+        <item>Termodinámica</item>
+        <item>Transferencia de Calor</item>
+        <item>Procesos y Sistemas Térmicos</item>
+        <item>Diseño de Sistemas Térmicos</item>
+        <item>Máquinas Térmicas</item>
+        <item>Energías Alternativas</item>
+        <item>Motores de Combustión Interna</item>
     </string-array>
 
     <string-array name="mMecatronica">
-        Control Digital
-        Oleoneumática Industrial
-        Robótica Industrial
-        Diseño Mecatrónico
-        Instrumentación y Automatización Industrial
-        Comunicaciones y Redes Industriales
-        Control Análogo
-        Control I. Mecánica
-        Automatización
-        Biomecatrónica
-        Instrumentación y Redes Industriales
-        Automatización de Procesos
-        Internet de las cosas
-        Visión Artificial
-        Electrónica Digital y Microcontroladores
-        Electrónica Análoga y de Potencia
-        Circuitos Eléctricos y Máquinas
-        Electricidad y Electrónica
-        Señales y Sistemas
-        Sistemas Embebidos
+        <item>Control Digital</item>
+        <item>Oleoneumática Industrial</item>
+        <item>Robótica Industrial</item>
+        <item>Diseño Mecatrónico</item>
+        <item>Instrumentación y Automatización Industrial</item>
+        <item>Comunicaciones y Redes Industriales</item>
+        <item>Control Análogo</item>
+        <item>Control I. Mecánica</item>
+        <item>Automatización</item>
+        <item>Biomecatrónica</item>
+        <item>Instrumentación y Redes Industriales</item>
+        <item>Automatización de Procesos</item>
+        <item>Internet de las cosas</item>
+        <item>Visión Artificial</item>
+        <item>Electrónica Digital y Microcontroladores</item>
+        <item>Electrónica Análoga y de Potencia</item>
+        <item>Circuitos Eléctricos y Máquinas</item>
+        <item>Electricidad y Electrónica</item>
+        <item>Señales y Sistemas</item>
+        <item>Sistemas Embebidos</item>
 
     </string-array>
 
