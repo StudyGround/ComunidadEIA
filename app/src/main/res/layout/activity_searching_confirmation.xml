@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity_searching_confirmation">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#009688"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+
+    <TextView
+        android:id="@+id/title5"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:background="#009688"
+        android:fontFamily="@font/raleway_extrabold_italic"
+        android:text="StudyGround"
+        android:textAlignment="center"
+        android:textColor="#F6FDFD"
+        android:textSize="48sp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/medium"
+        android:text="!Perfecto,¡"
+        android:textAlignment="center"
+        android:textColor="#0E0000"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/busqueda"
+        android:layout_width="358dp"
+        android:layout_height="101dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/medium"
+        android:text="."
+        android:textAlignment="center"
+        android:textColor="#050000"
+        android:textSize="24sp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="303dp"
+        android:layout_height="184dp"
+        android:textAlignment="center"
+        app:srcCompat="@drawable/check" />
+</LinearLayout>
