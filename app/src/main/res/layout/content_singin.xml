@@ -23,7 +23,7 @@
     <ImageView
         android:id="@+id/logo"
         android:layout_width="match_parent"
-        android:layout_height="51dp"
+        android:layout_height="81dp"
         android:background="#009688"
         android:paddingBottom="10dp"
         app:srcCompat="@drawable/logocarga" />
@@ -82,6 +82,17 @@
         android:fontFamily="@font/medium"
         android:hint="Nombre completo"
         android:inputType="textPersonName"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="344dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="30dp"
+        android:ems="10"
+        android:fontFamily="@font/medium"
+        android:hint="Teléfono"
+        android:inputType="phone"
         android:textSize="14sp" />
 
     <Spinner
