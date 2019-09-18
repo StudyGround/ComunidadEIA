@@ -20,15 +20,19 @@ import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class ProfileMainActivity extends AppCompatActivity {
 
     private ImageButton teach;
     private ImageButton study;
     private TextView txtWelcome;
+    private TextView txtMaterias;
 
     FirebaseAuth auth;
     DatabaseReference db;
 
+    ArrayList<String> arrayList=new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,15 +54,25 @@ public class ProfileMainActivity extends AppCompatActivity {
                 UserPojo userPojo=dataSnapshot.getValue(user);
 
                 String text=getString(R.string.welcome_messages,userPojo.getName());
-                String materias[]=userPojo.getMaterias();
-                String mm="Materias escogidas: ";
-                for(int i=0;i<materias.length;i++){
-                    System.out.println("materia"+(i+1)+" : "+materias[i]);
-                    mm.concat(materias[i]);
-                }
 
-                //mostramos en el textview
+                db.child("Materias").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot2) {
+                        arrayList=(ArrayList) dataSnapshot2.getValue();
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        Log.e("ERROR FIREBASE",databaseError.getMessage());
+                    }
+                });
+
+
+              //mostramos en el textview
                 txtWelcome.setText(text);
+
+
 
             }
 
@@ -76,10 +90,13 @@ public class ProfileMainActivity extends AppCompatActivity {
         study=(ImageButton) findViewById(R.id.studyButton);
         txtWelcome=(TextView) findViewById(R.id.welcome);
 
+        txtMaterias=(TextView) findViewById(R.id.txtmaterias);
+
         study.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(ProfileMainActivity.this, StudyActivity.class);
+                intent.putStringArrayListExtra("materiasEsc",arrayList);
                 startActivity(intent);
 
             }

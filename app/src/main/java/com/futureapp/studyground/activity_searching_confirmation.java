@@ -10,5 +10,7 @@ public class activity_searching_confirmation extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_searching_confirmation);
+
+
     }
 }

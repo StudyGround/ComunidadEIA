@@ -3,16 +3,16 @@ package com.futureapp.studyground;
 import androidx.annotation.NonNull;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class UserPojo {
 
 
     String programa,email,uid,name;
-    String materias[];
+    List materias[];
 
 
-    public UserPojo() {
-    }
+    public UserPojo() { }
 
     public String getPrograma() {
         return programa;
@@ -46,11 +46,11 @@ public class UserPojo {
         this.name = name;
     }
 
-    public String[] getMaterias() {
+    public List[] getMaterias() {
         return materias;
     }
 
-    public void setMaterias(String[] materias) {
+    public void setMaterias(List[] materias) {
         this.materias = materias;
     }
 
