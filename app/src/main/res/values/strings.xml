@@ -11,6 +11,8 @@
     <string name="login_failed">"Login failed"</string>
 
     <string name="welcome_messages">¿Que deseas hacer hoy, %1$s?</string>
+    <string name="perfect">¡Perfecto, %1$s! </string>
+    <string name="find_partner">StudyGround está buscando compañerosque quieran estudiar <u> %1$s</u> <br>Te notificaremos cuando alguien acepte tu solicitud</br>  </string>
 
 
     <string-array name="programa">
