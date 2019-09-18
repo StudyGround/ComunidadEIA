@@ -1,5 +1,6 @@
 package com.futureapp.studyground;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -33,6 +34,8 @@ import java.util.Map;
 
 public class SinginActivity extends AppCompatActivity {
 
+    public static Activity fa;
+
     private EditText txtemail;
     private EditText txtpwd;
     private EditText txtcPwd;
@@ -63,7 +66,7 @@ public class SinginActivity extends AppCompatActivity {
 
         Resources res = getResources();
 
-
+        fa=this;
 
         //Cargar archivo xml
 

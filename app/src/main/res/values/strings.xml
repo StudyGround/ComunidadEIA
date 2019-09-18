@@ -10,6 +10,9 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
 
+    <string name="welcome_messages">¿Que deseas hacer hoy, %1$s?</string>
+
+
     <string-array name="programa">
         <item>Ingeniería de Sistemas</item>
         <item>Ingeniería Civil</item>
@@ -169,7 +172,7 @@
         <item>Microeconomía</item>
         <item>Macroeconomía</item>
         <item>Economía Internacional</item>
-        <item>Contabilidad<item>
+        <item>Contabilidad</item>
         <item>Costos</item>
         <item>Administración Financiera</item>
         <item>Matemática Financiera</item>

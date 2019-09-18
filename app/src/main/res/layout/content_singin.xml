@@ -23,7 +23,7 @@
     <ImageView
         android:id="@+id/logo"
         android:layout_width="match_parent"
-        android:layout_height="171dp"
+        android:layout_height="51dp"
         android:background="#009688"
         android:paddingBottom="10dp"
         app:srcCompat="@drawable/logocarga" />

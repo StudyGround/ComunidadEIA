@@ -27,23 +27,15 @@
         android:textSize="48sp" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/welcome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:fontFamily="@font/medium"
-        android:text="¿Qué deseas hacer hoy,"
+        android:text=".."
         android:textAlignment="center"
         android:textSize="30sp" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/medium"
-        android:text="Santiago?"
-        android:textAlignment="center"
-        android:textSize="30sp" />
 
     <ImageButton
         android:id="@+id/teachButton"
