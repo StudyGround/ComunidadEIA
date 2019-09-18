@@ -43,7 +43,7 @@
 
     <EditText
         android:id="@+id/txtemail"
-        android:layout_width="351dp"
+        android:layout_width="343dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginLeft="0dp"
@@ -67,7 +67,7 @@
 
     <EditText
         android:id="@+id/txtcPwd"
-        android:layout_width="344dp"
+        android:layout_width="343dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="0dp"
         android:layout_gravity="center"
@@ -79,7 +79,7 @@
 
     <EditText
         android:id="@+id/txtname"
-        android:layout_width="344dp"
+        android:layout_width="343dp"
         android:layout_height="38dp"
         android:layout_marginLeft="0dp"
         android:layout_gravity="center"
@@ -91,7 +91,7 @@
 
     <EditText
         android:id="@+id/editText"
-        android:layout_width="344dp"
+        android:layout_width="343dp"
         android:layout_height="40dp"
         android:layout_marginLeft="0dp"
         android:layout_gravity="center"
@@ -103,7 +103,7 @@
 
     <Spinner
         android:id="@+id/spinuniversidad"
-        android:layout_width="344dp"
+        android:layout_width="343dp"
         android:layout_height="29dp"
         android:layout_marginLeft="0dp"
         android:layout_gravity="center"
@@ -111,7 +111,7 @@
 
     <Spinner
         android:id="@+id/spinprograma"
-        android:layout_width="344dp"
+        android:layout_width="343dp"
         android:layout_height="27dp"
         android:layout_marginLeft="0dp"
         android:layout_gravity="center"
