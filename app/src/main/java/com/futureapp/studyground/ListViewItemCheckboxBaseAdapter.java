@@ -13,17 +13,22 @@ import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class ListViewItemCheckboxBaseAdapter extends BaseAdapter {
 
     private List<ListViewItemDTO> listViewItemDtoList = null;
+    private ArrayList<ListViewItemDTO> arrayList;
 
     private Context ctx = null;
 
     public ListViewItemCheckboxBaseAdapter(Context ctx, List<ListViewItemDTO> listViewItemDtoList) {
         this.ctx = ctx;
         this.listViewItemDtoList = listViewItemDtoList;
+        this.arrayList=new ArrayList<ListViewItemDTO>();
+        this.arrayList.addAll(listViewItemDtoList);
     }
 
     @Override
@@ -81,5 +86,24 @@ public class ListViewItemCheckboxBaseAdapter extends BaseAdapter {
 
         return convertView;
     }
+
+    public void filter(String charText){
+        charText=charText.toLowerCase(Locale.getDefault());
+        listViewItemDtoList.clear();
+
+        if(charText.length()==0){
+            listViewItemDtoList.addAll(arrayList);
+
+        }else{
+            for(ListViewItemDTO wp: arrayList){
+                if(wp.getItemText().toLowerCase(Locale.getDefault()).contains(charText)){
+                    listViewItemDtoList.add(wp);
+                }
+            }
+        }
+
+    }
+
+
 
 }

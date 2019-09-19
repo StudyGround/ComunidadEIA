@@ -43,6 +43,8 @@ public class ElectMateriasActivity extends AppCompatActivity implements SearchVi
 
     ArrayList<String> materiasEscogidas=new ArrayList<String>() ;
 
+    ListViewItemCheckboxBaseAdapter listViewDataAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,7 +77,7 @@ public class ElectMateriasActivity extends AppCompatActivity implements SearchVi
         final List<ListViewItemDTO> initItemList = this.getInitViewItemDtoList(listaMaterias);
 
         // Create a custom list view adapter with checkbox control.
-        final ListViewItemCheckboxBaseAdapter listViewDataAdapter = new ListViewItemCheckboxBaseAdapter(getApplicationContext(), initItemList);
+        listViewDataAdapter = new ListViewItemCheckboxBaseAdapter(getApplicationContext(), initItemList);
 
         listViewDataAdapter.notifyDataSetChanged();
 
@@ -139,7 +141,7 @@ public class ElectMateriasActivity extends AppCompatActivity implements SearchVi
 
 
 
-        searchView= (SearchView) findViewById(R.id.searchView);
+        searchView= (SearchView) findViewById(R.id.searchView2);
         searchView.setOnQueryTextListener(this);
 
 
