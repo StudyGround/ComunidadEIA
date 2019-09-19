@@ -5,6 +5,7 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     android:orientation="vertical"
     tools:context=".ElectMateriasActivity">
 
@@ -12,12 +13,18 @@
         android:id="@+id/btnRegistro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Registro" />
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="#009688"
+        android:fontFamily="@font/medium"
+        android:padding="10dp"
+        android:text="Registro"
+        android:textColor="#FFFEFE" />
 
     <ListView
         android:id="@+id/listViewCB"
-        android:layout_width="match_parent"
-        android:layout_height="663dp">
+        android:layout_width="395dp"
+        android:layout_height="663dp"
+        android:layout_gravity="center_horizontal">
 
     </ListView>
 

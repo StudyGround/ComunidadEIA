@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:fontFamily="@font/medium"
-        android:text="!Perfecto¡"
+        android:text="¡Perfecto!"
         android:textAlignment="center"
         android:textColor="#0E0000"
         android:textSize="24sp" />

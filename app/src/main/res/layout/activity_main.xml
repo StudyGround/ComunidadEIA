@@ -11,7 +11,8 @@
     <ImageView
         android:id="@+id/logocarga"
         android:layout_width="match_parent"
-        android:layout_height="430dp"
+        android:layout_height="0dp"
+        android:layout_weight="2"
         android:layout_marginTop="25dp"
         android:padding="40dp"
         app:srcCompat="@drawable/logocarga" />
@@ -19,7 +20,8 @@
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
         android:layout_marginTop="50dp"
         android:fontFamily="@font/raleway_extrabold_italic"
         android:text="StudyGround"
@@ -30,10 +32,12 @@
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center"
+        android:layout_height="0dp"
         android:layout_centerInParent="true"
-        android:indeterminateDrawable="@drawable/circular_spinner" >
-    </ProgressBar>
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:backgroundTint="#FDFCFC"
+        android:indeterminateDrawable="@drawable/circular_spinner"
+        android:progressTint="#FFFFFF"></ProgressBar>
 
 </LinearLayout>
