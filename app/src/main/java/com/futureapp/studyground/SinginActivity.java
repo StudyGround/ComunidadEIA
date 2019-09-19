@@ -40,6 +40,7 @@ public class SinginActivity extends AppCompatActivity {
     private EditText txtpwd;
     private EditText txtcPwd;
     private EditText txtname;
+    private EditText txtphone;
     private Button buttonReturn;
     private Spinner spinPrograma;
     private Spinner spinUniversidad;
@@ -52,6 +53,7 @@ public class SinginActivity extends AppCompatActivity {
     private String cpwd = "";
     private String univ = "";
     private String programa = "";
+    private String phone="";
 
     // Variables firebase
     FirebaseAuth auth;
@@ -81,6 +83,7 @@ public class SinginActivity extends AppCompatActivity {
         txtpwd = (EditText) findViewById(R.id.txtpwd);
         txtcPwd = (EditText) findViewById(R.id.txtcPwd);
         txtname = (EditText) findViewById(R.id.txtname);
+        txtphone = (EditText) findViewById(R.id.txtPhone);
 
         buttonReturn = (Button) findViewById(R.id.buttonReturn);
         spinUniversidad = (Spinner) findViewById(R.id.spinuniversidad);
@@ -152,6 +155,7 @@ public class SinginActivity extends AppCompatActivity {
                   pwd = txtpwd.getText().toString();
                   cpwd = txtcPwd.getText().toString();
                   name = txtname.getText().toString();
+                  phone =txtphone.getText().toString();
 
 
 
@@ -169,6 +173,7 @@ public class SinginActivity extends AppCompatActivity {
                               intent.putExtra("name",name);
                               intent.putExtra("programa",programa);
                               intent.putExtra("universidad",univ);
+                              intent.putExtra("phone",phone);
                               startActivity(intent);
                           } else {
                               Toast.makeText(SinginActivity.this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();

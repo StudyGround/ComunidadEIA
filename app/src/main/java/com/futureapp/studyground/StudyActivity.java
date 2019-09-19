@@ -4,10 +4,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
@@ -24,8 +29,9 @@ import java.util.List;
 public class StudyActivity extends AppCompatActivity {
 
     private ListView listView;
+    private TextView txtStudyTeach;
+    String opcionTS,op="";
 
-    private ArrayAdapter<String> adapter;
 
     FirebaseAuth auth;
     DatabaseReference db;
@@ -42,45 +48,39 @@ public class StudyActivity extends AppCompatActivity {
         final ArrayList<String> arrayList = (ArrayList<String>) getIntent().getStringArrayListExtra("materiasEsc");
 
 
+        txtStudyTeach=(TextView) findViewById(R.id.textTwice);
+        opcionTS=getIntent().getStringExtra("option");
+        String option=getString(R.string.studyTeach,opcionTS);
+
+        txtStudyTeach.setText(option);
+
 
         listView = (ListView) findViewById(R.id.listView);
 
-        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,arrayList);
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,arrayList);
 
         listView.setAdapter(adapter);
 
-        arrayList.add("qwerty");
-        arrayList.add("123456");
 
-       db.child("Materias").addValueEventListener(new ValueEventListener() {
+        listView.setOnItemClickListener(new android.widget.AdapterView.OnItemClickListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String item = arrayList.get(position);
+                Toast.makeText(getApplicationContext(), "You selected : " + item, Toast.LENGTH_SHORT).show();
 
+                Intent intent =new Intent(StudyActivity.this,activity_searching_confirmation.class);
+                intent.putExtra("materiaStudy",item);
 
-                //arrayList=(ArrayList) dataSnapshot.getValue();
+                if(opcionTS.equals("enseñar")){
+                    op="aprender";
+                }else{
+                    op="estudiar o enseñar ";
+                }
 
-               /* for (int i=0;i<arrayList.size();i++){
-                    System.out.println("Materia en array list: "+arrayList.get(i));
-                    adapter.notifyDataSetChanged();
-                }*/
-
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.e("ERROR FIREBASE",databaseError.getMessage());
+                intent.putExtra("option",op);
+                startActivity(intent);
             }
         });
-
-
-        for (int i=0;i<arrayList.size();i++){
-            System.out.println("Materia en array list 222 : "+i+":"+arrayList.get(i));
-        }
-
-
-
-
 
     }
 }

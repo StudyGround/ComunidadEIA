@@ -37,6 +37,7 @@ public class ElectMateriasActivity extends AppCompatActivity {
     String name="";
     String programa="";
     String univ="";
+    String phone="";
 
     ArrayList<String> materiasEscogidas=new ArrayList<String>() ;
 
@@ -57,6 +58,7 @@ public class ElectMateriasActivity extends AppCompatActivity {
          name=getIntent().getStringExtra("name");
          programa=getIntent().getStringExtra("programa");
          univ=getIntent().getStringExtra("univ");
+         phone=getIntent().getStringExtra("phone");
 
 
         setTitle("Asignaturas");
@@ -154,6 +156,7 @@ public class ElectMateriasActivity extends AppCompatActivity {
                     map.put("pwd", pwd);
                     map.put("programa", programa);
                     map.put("universidad", univ);
+                    map.put("telefono",phone);
 
                     final String id = auth.getCurrentUser().getUid();
 

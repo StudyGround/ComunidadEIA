@@ -90,13 +90,13 @@ public class ProfileMainActivity extends AppCompatActivity {
         study=(ImageButton) findViewById(R.id.studyButton);
         txtWelcome=(TextView) findViewById(R.id.welcome);
 
-        txtMaterias=(TextView) findViewById(R.id.txtmaterias);
 
         study.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(ProfileMainActivity.this, StudyActivity.class);
                 intent.putStringArrayListExtra("materiasEsc",arrayList);
+                intent.putExtra("option","estudiar");
                 startActivity(intent);
 
             }
@@ -106,6 +106,8 @@ public class ProfileMainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(ProfileMainActivity.this, StudyActivity.class);
+                intent.putStringArrayListExtra("materiasEsc",arrayList);
+                intent.putExtra("option","enseñar");
                 startActivity(intent);
 
             }

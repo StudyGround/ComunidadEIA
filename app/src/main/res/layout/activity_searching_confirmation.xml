@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:fontFamily="@font/medium"
-        android:text="!Perfecto,¡"
+        android:text="!Perfecto¡"
         android:textAlignment="center"
         android:textColor="#0E0000"
         android:textSize="24sp" />
@@ -45,13 +45,14 @@
         android:text="."
         android:textAlignment="center"
         android:textColor="#050000"
-        android:textSize="24sp" />
+        android:textSize="20sp" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="308dp"
-        android:layout_height="172dp"
-        android:textAlignment="center"
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_gravity="center"
-        app:srcCompat="@drawable/check" />
+        android:layout_centerInParent="true"
+        android:indeterminateDrawable="@drawable/circular_spinner_study" >
+    </ProgressBar>
 </LinearLayout>

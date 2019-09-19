@@ -90,7 +90,7 @@
         android:textSize="14sp" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/txtPhone"
         android:layout_width="344dp"
         android:layout_height="40dp"
         android:layout_marginLeft="0dp"
