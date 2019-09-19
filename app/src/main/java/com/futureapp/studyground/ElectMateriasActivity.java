@@ -47,6 +47,9 @@ public class ElectMateriasActivity extends AppCompatActivity {
         setContentView(R.layout.activity_elect_materias);
 
         auth = FirebaseAuth.getInstance();
+
+
+
         db = FirebaseDatabase.getInstance().getReference();
 
         btnRegistro=(Button) findViewById(R.id.btnRegistro);
