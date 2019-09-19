@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.Toast;
+import android.widget.SearchView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -25,8 +26,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ElectMateriasActivity extends AppCompatActivity {
+public class ElectMateriasActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
     Button btnRegistro;
+    SearchView searchView;
 
     // Variables firebase
     FirebaseAuth auth;
@@ -137,12 +139,25 @@ public class ElectMateriasActivity extends AppCompatActivity {
 
 
 
-
+        searchView= (SearchView) findViewById(R.id.searchView);
+        searchView.setOnQueryTextListener(this);
 
 
 
 
     }
+    
+    @Override
+    public boolean onQueryTextSubmit(String query){
+        return false;   
+    }
+    
+    @Override
+    public boolean onQueryTextChange(String newText){
+        String text=newText;
+        listViewDataAdapter.filter(text);
+        return false;
+    }    
 
     private void registerUser() {
         auth.createUserWithEmailAndPassword(email, pwd).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
