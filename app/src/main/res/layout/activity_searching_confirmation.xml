@@ -56,4 +56,10 @@
         android:layout_centerInParent="true"
         android:indeterminateDrawable="@drawable/circular_spinner_study" >
     </ProgressBar>
+
+    <Button
+        android:id="@+id/btnMostrarNotificacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button" />
 </LinearLayout>

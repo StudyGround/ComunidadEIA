@@ -3,6 +3,7 @@ package com.futureapp.studyground;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -30,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
 
    FirebaseAuth auth;
     DatabaseReference db;
+
 
     private String email = "";
     private String pwd = "";
@@ -63,13 +65,17 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
+
+
+
+
+
         //Ir a registrar usuario
         singin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, SinginActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -88,5 +94,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
 
 }
