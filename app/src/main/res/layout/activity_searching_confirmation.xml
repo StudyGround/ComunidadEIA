@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity_searching_confirmation">
+    tools:context=".searchPartnerActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar4"
@@ -57,9 +57,5 @@
         android:indeterminateDrawable="@drawable/circular_spinner_study" >
     </ProgressBar>
 
-    <Button
-        android:id="@+id/btnMostrarNotificacion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button" />
+
 </LinearLayout>

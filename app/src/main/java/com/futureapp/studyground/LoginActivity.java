@@ -50,7 +50,6 @@ public class LoginActivity extends AppCompatActivity {
         txtemail = (EditText) findViewById(R.id.email);
         txtpwd = (EditText) findViewById(R.id.pwd);
         login = (Button) findViewById(R.id.login);
-        logGoogle = (ImageButton) findViewById(R.id.logGoogle);
         singin = (Button) findViewById(R.id.singin);
 
 
@@ -90,6 +89,8 @@ public class LoginActivity extends AppCompatActivity {
                     Intent intent = new Intent(LoginActivity.this, ProfileMainActivity.class);
                     startActivity(intent);
                     finish();
+                }else{
+                    Toast.makeText(LoginActivity.this, "Correo o contraseña incorrectos", Toast.LENGTH_SHORT).show();
                 }
             }
         });

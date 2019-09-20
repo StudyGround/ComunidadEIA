@@ -1,12 +1,14 @@
 package com.futureapp.studyground;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,16 +17,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.GenericTypeIndicator;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class StudyActivity extends AppCompatActivity {
 
@@ -36,6 +32,8 @@ public class StudyActivity extends AppCompatActivity {
     FirebaseAuth auth;
     DatabaseReference db;
 
+
+    NotificationChannel channel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +66,7 @@ public class StudyActivity extends AppCompatActivity {
                 String item = arrayList.get(position);
                 Toast.makeText(getApplicationContext(), "You selected : " + item, Toast.LENGTH_SHORT).show();
 
-                Intent intent =new Intent(StudyActivity.this,activity_searching_confirmation.class);
+                Intent intent =new Intent(StudyActivity.this, searchPartnerActivity.class);
                 intent.putExtra("materiaStudy",item);
 
                 if(opcionTS.equals("enseñar")){
@@ -78,9 +76,52 @@ public class StudyActivity extends AppCompatActivity {
                 }
 
                 intent.putExtra("option",op);
+
+
+                NotificationCompat.Builder mBuilder;
+                NotificationManager mNotifyMgr =(NotificationManager) getApplicationContext().getSystemService(NOTIFICATION_SERVICE);
+
+
+                createNotificationChannel();
+
+                int icono = R.mipmap.ic_launcher;
+                Intent i=new Intent(StudyActivity.this, ProfileMainActivity.class);
+                PendingIntent pendingIntent = PendingIntent.getActivity(StudyActivity.this, 0, i, 0);
+
+                mBuilder =new NotificationCompat.Builder(getApplicationContext())
+                        .setContentIntent(pendingIntent)
+                        .setSmallIcon(icono)
+                        .setContentTitle("StudyGround")
+                        .setContentText("Hola, hay alguien que quiere estudiar, "+item)
+                        .setVibrate(new long[] {100, 250, 100, 500})
+                        .setAutoCancel(true)
+                        .setChannelId("Channel");
+
+                System.out.println(mBuilder);
+
+                mNotifyMgr.notify(1, mBuilder.build());
+
+
                 startActivity(intent);
             }
         });
 
+    }
+
+
+    private void createNotificationChannel() {
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "Mensaje";
+            String description = "Notificacion android";
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            channel = new NotificationChannel("Channel", name, importance);
+            channel.setDescription(description);
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviors after this
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
     }
 }

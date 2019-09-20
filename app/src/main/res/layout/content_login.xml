@@ -70,14 +70,14 @@
         android:text="Iniciar Sesión"
         android:textColor="#FFFFFF" />
 
-    <ImageButton
+  <!--  <ImageButton
         android:id="@+id/logGoogle"
         android:layout_width="343dp"
         android:layout_height="31dp"
         android:layout_marginLeft="0dp"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        app:srcCompat="@drawable/googleg_standard_color_18" />
+        app:srcCompat="@drawable/googleg_standard_color_18" />  -->
 
     <TextView
         android:id="@+id/textView2"
