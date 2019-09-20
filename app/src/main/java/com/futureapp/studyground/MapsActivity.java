@@ -1,86 +1,100 @@
 package com.futureapp.studyground;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.provider.Settings;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
-public class searchPartnerActivity extends AppCompatActivity {
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
-    private static final String TAG = "search";
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
-    String materia,option;
-    TextView txtBusqueda, txtLongitud;
+    private GoogleMap mMap;
 
     double longitudeGPS,latitudeGPS;
 
     LocationManager locationManager;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_searching_confirmation);
+        setContentView(R.layout.activity_maps);
+        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
 
-        materia=getIntent().getStringExtra("materiaStudy");
-        option=getIntent().getStringExtra("option");
-
-        String text=getString(R.string.find_partner,option,materia);
-
-        txtBusqueda=(TextView) findViewById(R.id.busqueda);
-
-
-        txtBusqueda.setText(text);
-
-
+        //mapa google maps
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
 
-        ActivityCompat.requestPermissions(searchPartnerActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, /* Este codigo es para identificar tu request */ 1);
+        ActivityCompat.requestPermissions(MapsActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, /* Este codigo es para identificar tu request */ 1);
 
-        if (ContextCompat.checkSelfPermission(searchPartnerActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)
+        if (ContextCompat.checkSelfPermission(MapsActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
             // Permission is not granted
         }
 
         // Here, thisActivity is the current activity
-        if (ContextCompat.checkSelfPermission(searchPartnerActivity.this,
-                Manifest.permission.ACCESS_FINE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(MapsActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
 
         } else {
             // Permission has already been granted
-            locationManager.requestLocationUpdates(
-                    LocationManager.GPS_PROVIDER, 2 * 20 * 1000, 10, locationListenerGPS);
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1, 10, locationListenerGPS);
+
+
         }
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
         }
-        locationManager.requestLocationUpdates(
-                LocationManager.GPS_PROVIDER, 2 * 20 * 1000, 10, locationListenerGPS);
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1, 10, locationListenerGPS);
 
+
+        System.out.println("GPS bb lonLat"+longitudeGPS+" , "+latitudeGPS);
 
 
 
 
 
     }
+
+
+    /**
+     * Manipulates the map once available.
+     * This callback is triggered when the map is ready to be used.
+     * This is where we can add markers or lines, add listeners or move the camera. In this case,
+     * we just add a marker near Sydney, Australia.
+     * If Google Play services is not installed on the device, the user will be prompted to install
+     * it inside the SupportMapFragment. This method will only be triggered once the user has
+     * installed Google Play services and returned to the app.
+     */
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+
+        // Add a marker in Sydney and move the camera
+        LatLng sydney = new LatLng(6.157110142127306, -75.51697254180908);
+        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(17.0f));
+    }
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
@@ -115,8 +129,12 @@ public class searchPartnerActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     System.out.println("GPS longitud:"+longitudeGPS+" ,, latitud: "+latitudeGPS);
+
+                    Toast.makeText(MapsActivity.this,("Longitude"+longitudeGPS), Toast.LENGTH_LONG).show();
                 }
             });
+
+            double[] latLng={longitudeGPS,latitudeGPS};
         }
 
         @Override
@@ -132,5 +150,3 @@ public class searchPartnerActivity extends AppCompatActivity {
     };
 
 }
-
-

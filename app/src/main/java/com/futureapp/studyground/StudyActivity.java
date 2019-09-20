@@ -66,7 +66,7 @@ public class StudyActivity extends AppCompatActivity {
                 String item = arrayList.get(position);
                 Toast.makeText(getApplicationContext(), "You selected : " + item, Toast.LENGTH_SHORT).show();
 
-                Intent intent =new Intent(StudyActivity.this, searchPartnerActivity.class);
+                Intent intent =new Intent(StudyActivity.this, SearchPartnerActivity.class);
                 intent.putExtra("materiaStudy",item);
 
                 if(opcionTS.equals("enseñar")){
@@ -78,14 +78,14 @@ public class StudyActivity extends AppCompatActivity {
                 intent.putExtra("option",op);
 
 
-                NotificationCompat.Builder mBuilder;
+             /*   NotificationCompat.Builder mBuilder;
                 NotificationManager mNotifyMgr =(NotificationManager) getApplicationContext().getSystemService(NOTIFICATION_SERVICE);
 
 
                 createNotificationChannel();
 
                 int icono = R.mipmap.ic_launcher;
-                Intent i=new Intent(StudyActivity.this, ProfileMainActivity.class);
+                Intent i=new Intent(StudyActivity.this, MapsActivity.class);
                 PendingIntent pendingIntent = PendingIntent.getActivity(StudyActivity.this, 0, i, 0);
 
                 mBuilder =new NotificationCompat.Builder(getApplicationContext())
@@ -99,7 +99,7 @@ public class StudyActivity extends AppCompatActivity {
 
                 System.out.println(mBuilder);
 
-                mNotifyMgr.notify(1, mBuilder.build());
+                mNotifyMgr.notify(1, mBuilder.build());*/
 
 
                 startActivity(intent);
