@@ -36,287 +36,337 @@
 
     <string-array name="mCienciasBasicas">
 
-        <item>Metodología de la Investigación</item>
-        <item>Seminario de Trabajo de Grado </item>
-        <item>SPE</item>
-        <item>Prepación SPE</item>
-        <item>Trabajo de Grado I</item>
-        <item>Trabajo de Grado II</item>
-        <item>Proyecto de Ingeniería I</item>
-        <item>Proyecto de Ingeniería II</item>
-        <item>Proyecto de Ingeniería III</item>
-        <item>Proyecto de Ingeniería IV</item>
+        <item>Fundamentos de Programación</item>
         <item>Comunicación y Ciencia</item>
-        <item>Hombre, Cultura y Sociedad</item>
-        <item>Ética   y Responsabilidad Social</item>
-        <item>Legislación General</item>
-        <item>Geopolítica</item>
-        <item>Legislación Comercial y Tributaria</item>
-        <item>Legislación Comercial y Laboral</item>
-        <item>Legislación Financiera y Tributaria</item>
-        <item>Participación comunitaria</item>
-        <item>Ética y laboratorio social</item>
-        <item>Legislación Informática</item>
-        <item>Legislación I. Civil</item>
-        <item>Legislación Minera</item>
-        <item>Álgebra Lineal</item>
         <item>Cálculo Diferencial</item>
-        <item>Cálculo Integral</item>
-        <item>Cálculo en Varias Variables</item>
-        <item>Ecuaciones Diferenciales</item>
         <item>Geometría</item>
-        <item>Análisis Numérico</item>
-        <item>Matemáticas Especiales</item>
-        <item>Métodos Cuantitativos</item>
-        <item>Probabilidad y Estadística</item>
-        <item>Pronósticos</item>
         <item>Química General e Inorgánica</item>
-        <item>Química Ambiental</item>
-        <item>Bioquímica</item>
-        <item>Química Orgánica</item>
-        <item>Expresión Gráfica</item>
         <item>Introducción a la Ingeniería</item>
+        <item>Biología</item>
+
+        <item>Hombre, Cultura y Sociedad</item>
+        <item>Proyecto de Ingeniería I</item>
+        <item>Cálculo Integral</item>
+        <item>Álgebra Lineal</item>
+        <item>Expresión Gráfica</item>
         <item>Formación Complementaria</item>
         <item>Física Mecánica</item>
-        <item>Física de Campos</item>
-        <item>Física de Ondas</item>
-        <item>Fundamentos de Programación</item>
+
+        <item>Cálculo en Varias Variables</item>
+        <item>Ecuaciones Diferenciales</item>
         <item>Economía General</item>
-        <item>Contabilidad y Finanzas</item>
-        <item>Formulación y Evaluación de Proyectos</item>
+
+        <item>Proyecto de Ingeniería II</item>
+        <item>Análisis Numérico</item>
+        <item>Física de Campos</item>
+
+        <item>Probabilidad y Estadística</item>
+        <item>Física de Ondas</item>
+        <item>Legislación General</item>
         <item>Administración General</item>
-        <item>Biología</item>
+
+        <item>Métodos Cuantitativos</item>
+        <item>Geopolítica</item>
+        <item>Proyecto de Ingeniería III</item>
+        <item>Metodología de la Investigación</item>
+        <item>Modelos y Simulacón</item>
+
+        <item>Contabilidad y Finanzas</item>
+        <item>Seminario de Trabajo de Grado </item>
+        <item>Prepación SPE</item>
+
+        <item>Ética   y Responsabilidad Social</item>
+        <item>Proyecto de Ingeniería IV</item>
+        <item>Formulación y Evaluación de Proyectos</item>
+
+        <item>SPE</item>
+        <item>Trabajo de Grado I</item>
+
+        <item>Trabajo de Grado II</item>
+        <item>Optativa I</item>
+        <item>Optativa II</item>
+
     </string-array>
 
     <string-array name="mAdministrativa">
 
-        <item>Gestión de la Cadena de Abastecimiento</item>
-        <item>Administración Pública</item>
-        <item>Gestión Humana</item>
-        <item>Gerencia Estratégica</item>
-        <item>Gerencia Estratégica</item>
+        <item>Bases de Datos Empresariales</item>
+        <item>Microeconomía</item>
+        <item>Contabilidad</item>
+        <item>Macroeconomía</item>
+        <item>Costos</item>
+        <item>Pronósticos</item>
+        <item>Matemaática Financiera</item>
+        <item>Economía Internacional</item>
         <item>Innovación y Gestión de la Tecnología</item>
-        <item>Gerencia de Procesos</item>
-        <item>Gestión de Negocios Tecnológicos</item>
-        <item>Gerencia de proyectos</item>
-        <item>Emprendimiento</item>
+        <item>Administración Financiera</item>
         <item>Fundamentos de Mercadeo</item>
-        <item>Distribución Local e Internacional</item>
+        <item>Gestión Humana</item>
+        <item>Modelos y Simulación Empresarial</item>
+        <item>Finanzas Corporativas</item>
         <item>Comportamiento del Consumidor</item>
-        <item>Negociación y Ventas</item>
         <item>Negocios Internacionales</item>
-        <item>Mercadeo internacional</item>
-        <item>Negocios Electrónicos</item>
-        <item>Gerencia de Marca</item>
+        <item>Legislación Comercial y Tributaria</item>
+        <item>Análisis de Decisiones</item>
+        <item>Negociación y Ventas</item>
+        <item>Administración Pública</item>
+        <item>Gerencia Estratégica</item>
+        <item>Distribución Local e Internacional</item>
+        <item>Inteligencia de Negocios</item>
+
     </string-array>
 
     <string-array name="mAmbiental">
+
+        <item>Estática</item>
+        <item>Química Orgánica</item>
+        <item>Biodiversidad</item>
+        <item>Ciencia de los Materiales</item>
+        <item>Termodinámica y Mecánica de Fluidos</item>
+        <item>Química Ambiental</item>
+        <item>Microbiología</item>
+        <item>Hidráulica</item>
+        <item>Biotecnología Ambiental</item>
+        <item>Gestión y Valorización de Residuos</item>
+        <item>Hidroclimatología</item>
+        <item>Geología</item>
+        <item>Ecología</item>
+        <item>Información Georreferenciada</item>
+        <item>Modelos y Simulación de Sistemas</item>
+        <item>Ciencia del Suelo</item>
+        <item>Gestión Ambiental Corporativa</item>
+        <item>Derecho Ambiental</item>
         <item>Calidad y Tratamiento del Aire</item>
         <item>Calidad y Tratamiento de Aguas</item>
-        <item>Gestión ambiental en proyectos de desarrollo</item>
-        <item>Derecho Ambiental</item>
-        <item>Gestión y Valorización de Residuos</item>
-        <item>Gestión ambiental corporativa</item>
+        <item>Gestión Ambiental en Proyectos de Desarrollo</item>
         <item>Energía y Desarrollo</item>
-        <item>Economía Ambiental</item>
+        <item>Gestión del Territorio</item>
+        <item>Ética y Laboratorio Social</item>
+        <item>Participación Comunitaria</item>
 
     </string-array>
 
     <string-array name="mBiomedica">
-        <item>Microbiología</item>
-        <item>Ecología</item>
-        <item>Biodiversidad</item>
+
+        <item> Ciencia de los Materiales</item>
+        <item>Bioquímica</item>
         <item>Biología Celular</item>
-        <item>Biología Molecular</item>
+        <item>Programación</item>
         <item>Morfofisiología I</item>
-        <item>Morfofisiología II</item>
-        <item>Biotecnología Ambiental</item>
-        <item>Ingeniería de Rehabilitación</item>
+        <item>Biología Molecular</item>
+        <item>Circuitos Eléctricos y Máquinas</item>
+        <item>Mofofisiología II</item>
+        <item>Biomateriales</item>
+        <item>Biotecnología en Salud</item>
+        <item>Electrónica Análoga y de Potencia</item>
+        <item>Señales y Sistemas</item>
+        <item>Fenómenos de Transporte</item>
+        <item>Elementos de Máquinas</item>
+        <item>Física Moderna</item>
+        <item>Biomecánica</item>
+        <item>Electrónica Digital y Microcontroladores</item>
+        <item>Mecánica de Biofluidos</item>
+        <item>Modelos y Simulación Biomédica</item>
+        <item>Adquisición y Procesamiento de Señales</item>
         <item>Entorno Hospitalario</item>
         <item>Gestión de Tecnología en Salud</item>
-        <item>Adquisición y procesamiento de señales</item>
-        <item>Procesamiento digital de señales e imágenes</item>
-        <item>Biomecánica</item>
-        <item>Modelos y Simulación Biomédica</item>
-        <item>Dispositivos Médicos</item>
-        <item>Metrología Biomédica</item>
-        <item>Bioinformática</item>
-        <item>Biotecnologia en Salud</item>
-        <item>Biomateriales</item>
+        <item>Ingeniería de Rehabilitación</item>
+        <item>Biomecatrónica</item>
 
     </string-array>
 
     <string-array name="mCivil">
-        <item>Diseño de Elementos de Hormigón</item>
-        <item>Análisis de Estructuras</item>
-        <item>Materiales de Construcción</item>
-        <item>Construcción de Edificaciones</item>
-        <item>Diseño Sismorresistente</item>
-        <item>Construcción de Vías</item>
-        <item>BIM (Modelación de la Gestión de la Construcción)</item>
-        <item>Supervisión técnica en construcción</item>
-        <item>Hidráulica I Civil</item>
-        <item>Hidráulica</item>
-        <item>Mecánica de Fluidos</item>
-        <item>Mecánica de Biofluidos</item>
-        <item>Hidroclimatología</item>
-        <item>Suministro y Disposición de Aguas</item>
-        <item>Gestión del Territorio</item>
-        <item>Tránsito y Transporte</item>
-        <item>Información Georreferenciada</item>
-        <item>Fotointerpretación</item>
+
+        <item>Estática</item>
+        <item>Ciencia de los Materiales</item>
         <item>Topografía</item>
+        <item>Materiales de Construcción</item>
+        <item>Geología</item>
+        <item>Información Georreferenciada</item>
+        <item>Mecánica de Fluidos</item>
+        <item>Mecánica de Materiales</item>
+        <item>Modelos y Simulación de Sistemas</item>
+        <item>Física y Mecánica del Suelo</item>
+        <item>Análisis de Estructuras</item>
         <item>Diseño de Vías</item>
+        <item>Diseño de Pavimentos</item>
+        <item>Hidroclimatología</item>
+        <item>Diseño de Elementos de Hormigón</item>
+        <item>Construcción de Vías</item>
+        <item>Hidráulica I. Civil</item>
+        <item>Cimentaciones</item>
+        <item>Construcción de Edificaciones</item>
+        <item>Legislación I. Civil</item>
+        <item>Tránsito y Transporte</item>
+        <item>Diseño Sismorresistente</item>
+        <item>Suministro y Disposición de Aguas</item>
 
     </string-array>
 
     <string-array name="mFinanciera">
+
+        <item>Bases de Datos Empresariales</item>
         <item>Microeconomía</item>
         <item>Macroeconomía</item>
-        <item>Economía Internacional</item>
-        <item>Contabilidad</item>
         <item>Costos</item>
-        <item>Administración Financiera</item>
-        <item>Matemática Financiera</item>
-        <item>Finanzas Corporativas</item>
-        <item>Preparación y Evaluación de Proyectos</item>
-        <item>Banca y Mercado de Capitales</item>
+        <item>Pronósticos</item>
         <item>Renta Fija</item>
-        <item>Renta Variable</item>
-        <item>Introducción a los Riesgos Financieros</item>
+        <item>Matemática Financiera</item>
+        <item>Economía Internacional</item>
+        <item>Banca y Mercado de Capitales</item>
         <item>Econometría</item>
+        <item>Renta Variable</item>
+        <item>Administración Financiera</item>
+        <item>Intr. a los Riesgos Financieros</item>
         <item>Teoría de Portafolios</item>
+        <item>Finanzas Corporativas</item>
         <item>Derivados</item>
         <item>Riesgo de Mercado</item>
+        <item>Legislación Comercial y Laboral</item>
+        <item>Modelos y Simulación Financiera</item>
+        <item>Preparación y Evaluación de Proyectos</item>
         <item>Riesgo de Liquidez</item>
+        <item>Legislación Financiera y Tributaria</item>
+        <item>Finanzas Públicas</item>
         <item>Riesgo Crédito</item>
         <item>Riesgo Operativo</item>
-        <item>Finanzas Públicas</item>
 
     </string-array>
 
     <string-array name="mGeologica">
-        <item>Ciencia del Suelo</item>
-        <item>Geología</item>
-        <item>Cimentaciones</item>
-        <item>Procesos Geológicos</item>
+
+        <item>Estática</item>
         <item>Física y Química Mineral</item>
-        <item>Geología del petróleo</item>
-        <item>Yacimientos</item>
-        <item>Exploración y Explotación de Materiales</item>
-        <item>Petrología ígnea y metamórfica</item>
+        <item>Fotointerpretación</item>
+        <item>Procesos Geológicos</item>
+        <item>Mecánica de Fluidos</item>
+        <item>Petrología Ígnea y Metamórfica</item>
         <item>Geología Estructural</item>
-        <item>Petrología sedimentaria</item>
-        <item>Geomorfología</item>
-        <item>Mecánica de Rocas</item>
-        <item>Geología de Colombia</item>
-        <item>Diseño de Pavimentos</item>
-        <item>Gestión Integral del Riesgo</item>
-        <item>Geología Económica</item>
-        <item>Estabilidad de Taludes</item>
-        <item>Física y Mecánica del Suelo</item>
-        <item>Hidrogeología</item>
+        <item>Topografía</item>
+        <item>Petrología Sedimentaria</item>
         <item>Geología de Campo y Cartografía</item>
+        <item>Geología del Petróleo</item>
+        <item>Información Georreferenciada</item>
+        <item>Geomorfología</item>
+        <item>Geología de Colombia</item>
+        <item>Física y Mecánica del Suelo</item>
+        <item>Hidráulica</item>
+        <item>Modelos y Simulación de Sistemas</item>
+        <item>Yacimientos</item>
+        <item>Mecánica de Rocas</item>
+        <item>Exploración y Explotación de Materiales</item>
+        <item>Legislación Minera</item>
+        <item>Hidrogeología</item>
+        <item>Gestión Integral del Riesgo</item>
+
     </string-array>
 
     <string-array name="mIndustrial">
-        <item>Administración de Operaciones</item>
-        <item>Gestión de Operaciones</item>
-        <item>Logística</item>
-        <item>Diseño de Instalaciones</item>
-        <item>Diseño y Desarrollo de Bienes y Servicios</item>
+
+        <item>Estática</item>
+        <item>Ciencia de los Materiales</item>
         <item>Estudio del Trabajo</item>
-        <item>Control Estadístico de Procesos</item>
-        <item>Manufactura Esbelta</item>
-        <item>Factor Humano</item>
-        <item>Cadenas de Abastecimiento Digitales</item>
-        <item>Logística Internacional</item>
-        <item>Teoría de Restricciones</item>
-        <item>Modelos y Simulación</item>
+        <item>Termodinámica y Mecánica de Fluidos</item>
+        <item>Mecánica y Procesos de Transformación</item>
+        <item>Diseño y Desarrollo de Bienes y Servicios</item>
+        <item>Gestión de Operaciones</item>
+        <item>Métodos Cuantitativos</item>
         <item>Modelos y Simulación Empresarial</item>
-        <item>Modelos y Simulación de Sistemas</item>
-        <item>Modelos y Simulación de Sistemas Mecánicos</item>
-        <item>Modelos y Simulación Numérica</item>
-        <item>Toma de Decisiones</item>
+        <item>Electricidad y Electrónica</item>
+        <item>Control Estadístico de Procesos</item>
+        <item>Costos</item>
+        <item>Información Georreferenciada</item>
+        <item>Instrumentación y Redes Industriales</item>
         <item>Procesos Estocásticos</item>
-        <item>Modelos y Simulación Financiera</item>
+        <item>Logística</item>
+        <item>Factor Humano</item>
+        <item>Automatización de Procesos</item>
+        <item>Toma de Decisiones</item>
+        <item>Diseño de Instalaciones</item>
+        <item>Innovación y Gestión de la Tecnología</item>
+        <item>Manufactura Esbelta</item>
+        <item>Gerencia Estratégica</item>
+
     </string-array>
 
     <string-array name="mMecanica">
+
+        <item>Estática</item>
         <item>Ciencia de los Materiales</item>
-        <item>Deformación y Remoción de material</item>
-        <item>Unión y Solidificación de Materiales</item>
-        <item>Diseño Asistido por Computador</item>
-        <item>Procesos de Transformación Industrial</item>
-        <item>Mecánica y Procesos de Transformación</item>
-        <item>Mecánica de Materiales</item>
-        <item>Diseño Mecánico</item>
-        <item>Diseño de Mecanismos</item>
-        <item>Diseño de Elementos de Máquinas</item>
-        <item>Sistemas Mecánicos</item>
-        <item>Gestión del Mantenimiento Industrial</item>
-        <item>Dibujo de Elementos de Máquinas</item>
-        <item>Elementos de Máquinas</item>
-        <item>Termodinámica y Mecánica de Fluidos</item>
         <item>Termodinámica</item>
-        <item>Transferencia de Calor</item>
+        <item>Dibujo de Elementos de Máquinas</item>
+        <item>Matemáticas Especiales</item>
+        <item>Dinámica</item>
+        <item>Mecánica de Materiales</item>
         <item>Procesos y Sistemas Térmicos</item>
-        <item>Diseño de Sistemas Térmicos</item>
+        <item>Mecánica de Fluidos</item>
+        <item>Diseño de Elementos de Máquinas</item>
+        <item>Modelos y Simulación de Sistemas Mecánicos</item>
+        <item>Deformación y Remoción de Material</item>
+        <item>Transferencia de Calor</item>
+        <item>Electricidad y Electrónica</item>
+        <item>Diseño de Mecanismos</item>
+        <item>Unión y Solidificación de Materiales</item>
         <item>Máquinas Térmicas</item>
+        <item>Automatización</item>
+        <item>Diseño Mecánico</item>
+        <item>Diseño de Sistemas Térmicos</item>
+        <item>Gestión del Mantenimiento Industrial</item>
+        <item>Control I. Mecánica</item>
         <item>Energías Alternativas</item>
-        <item>Motores de Combustión Interna</item>
+
     </string-array>
 
     <string-array name="mMecatronica">
-        <item>Control Digital</item>
-        <item>Oleoneumática Industrial</item>
-        <item>Robótica Industrial</item>
-        <item>Diseño Mecatrónico</item>
-        <item>Instrumentación y Automatización Industrial</item>
-        <item>Comunicaciones y Redes Industriales</item>
-        <item>Control Análogo</item>
-        <item>Control I. Mecánica</item>
-        <item>Automatización</item>
-        <item>Biomecatrónica</item>
-        <item>Instrumentación y Redes Industriales</item>
-        <item>Automatización de Procesos</item>
-        <item>Internet de las cosas</item>
-        <item>Visión Artificial</item>
-        <item>Electrónica Digital y Microcontroladores</item>
-        <item>Electrónica Análoga y de Potencia</item>
+
+        <item>Estática</item>
+        <item>Ciencia de los Materiales</item>
+        <item>Termodinámica y Mecánica de Fluidos</item>
+        <item>Programación</item>
+        <item>Dinámica</item>
+        <item>Mecánica de Materiales</item>
         <item>Circuitos Eléctricos y Máquinas</item>
-        <item>Electricidad y Electrónica</item>
+        <item>Sistemas Mecánicos</item>
+        <item>Oleoneumática Industrial</item>
+        <item>Modelos y Simulación Numérica</item>
         <item>Señales y Sistemas</item>
-        <item>Sistemas Embebidos</item>
+        <item>Electrónica Análoga y de Potencia</item>
+        <item>Procesos de Transformación Industrial</item>
+        <item>Diseño Asistido por Computador</item>
+        <item>Control Análogo</item>
+        <item>Electrónica Digital y Microcontroladores</item>
+        <item>Instrumentación y Automatización Industrial</item>
+        <item>Control Digital</item>
+        <item>Diseño Mecatrónico</item>
+        <item>Robótica Industrial</item>
+        <item>Sistemas Inteligentes</item>
+        <item>Comunicaciones y Redes Industriales</item>
 
     </string-array>
 
 
     <string-array name="mSistemas">
-        <item>Bases de Datos Empresariales</item>
-        <item>Bases de Datos</item>
-        <item>Inteligencia Artificial</item>
-        <item>Programación</item>
-        <item>Análisis de Decisiones</item>
-        <item>Inteligencia de Negocios</item>
-        <item>Sistemas Inteligentes</item>
-        <item>Lenguajes y Compiladores</item>
-        <item>Estructuras de Datos</item>
-        <item>Computación Gráfica</item>
-        <item>Computación Científica</item>
-        <item>Arquitectura de Hardware</item>
-        <item>Implementación e Integración de Software</item>
-        <item>Requisitos y Modelos</item>
-        <item>Sistemas Operativos</item>
-        <item>Diseño de Redes</item>
-        <item>Administración de Redes</item>
-        <item>Seguridad de la información</item>
-        <item>Análisis y Diseño de Software</item>
+
         <item>Sistemas Discretos</item>
+        <item>Estructuras de Datos</item>
+        <item>Arquitectura de Hardware</item>
+        <item>Lenguajes y Compiladores</item>
+        <item>Requisitos y Modelos</item>
+        <item>Bases de Datos</item>
+        <item>Análisis y Diseño de Software</item>
+        <item>Métodos Cuantitativos</item>
+        <item>Sistemas Operativos</item>
+        <item>Legislación Informática</item>
+        <item>Implementación e Integración de Software</item>
+        <item>Modelos y Simulación Empresarial</item>
+        <item>Diseño de Redes</item>
+        <item>Computación Gráfica</item>
         <item>Ingeniería Web</item>
-        <item>Computación Distribuida y en la nube</item>
-        <item>Ciberseguridad y Ciberdefensa</item>
-        <item>Optativa SC</item>
+        <item>Administración de Redes</item>
+        <item>Computación Científica</item>
+        <item>Computación Distribuida y en la Nube</item>
+        <item>Inteligencia de Negocios</item>
+        <item>Seguridad de la Información</item>
 
     </string-array>
 
