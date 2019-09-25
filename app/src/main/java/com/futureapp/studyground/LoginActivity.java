@@ -59,7 +59,12 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 email = txtemail.getText().toString();
                 pwd = txtpwd.getText().toString();
-                readUser();
+
+                if(!email.isEmpty() && !pwd.isEmpty()) {
+                    readUser();
+                }else{
+                    Toast.makeText(LoginActivity.this, "Ingrese los datos ", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
