@@ -67,6 +67,8 @@ public class SinginActivity extends AppCompatActivity {
 
     AlertDialog.Builder builder;
 
+    String clase="ElectMateriasActivity.class";
+
     // Variables firebase
     FirebaseAuth auth;
     DatabaseReference db;
@@ -102,6 +104,8 @@ public class SinginActivity extends AppCompatActivity {
         rbSi=(RadioButton) findViewById(R.id.rbSi);
 
         builder = new AlertDialog.Builder(this);
+
+
 
 
         spinPrograma.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -196,7 +200,7 @@ public class SinginActivity extends AppCompatActivity {
                                       .setCancelable(false)
                                       .setPositiveButton("ok", new DialogInterface.OnClickListener() {
                                           public void onClick(DialogInterface dialog, int id) {
-                                              Intent intent = new Intent(SinginActivity.this, ElectMateriasActivity.class);
+                                              Intent intent = new Intent(SinginActivity.this, validRB.equals("Si")?ElectMateriasTeachActivity.class:ElectMateriasActivity.class);
                                               //intent
                                               intent.putStringArrayListExtra("materias", allMaterias);
                                               intent.putExtra("email",email);
