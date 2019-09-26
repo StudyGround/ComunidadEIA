@@ -14,6 +14,7 @@
     <string name="perfect">¡Perfecto, %1$s! </string>
     <string name="find_partner">StudyGround está buscando compañeros que quieran %1$s %2$s, <br>te notificaremos cuando alguien acepte tu solicitud</br>  </string>
     <string name="studyTeach">¿Que vas a %1$s hoy?</string>
+    <string name="redireccion">Seras redirigido a elegir que materias vas a %1$s</string>
 
     <string-array name="programa">
         <item>Ingeniería de Sistemas</item>

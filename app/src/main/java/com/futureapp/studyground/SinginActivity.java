@@ -1,6 +1,8 @@
 package com.futureapp.studyground;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -23,6 +25,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -45,6 +49,8 @@ public class SinginActivity extends AppCompatActivity {
     private Spinner spinPrograma;
     private Spinner spinUniversidad;
     private Button buttonMaterias;
+    private RadioGroup rg;
+    private RadioButton rbSi,rbNo;
 
     //Datos a registrar
     private String name = "";
@@ -54,6 +60,12 @@ public class SinginActivity extends AppCompatActivity {
     private String univ = "";
     private String programa = "";
     private String phone="";
+    private String rb="";
+    private String msg="";
+    private String validRB;
+
+
+    AlertDialog.Builder builder;
 
     // Variables firebase
     FirebaseAuth auth;
@@ -70,11 +82,6 @@ public class SinginActivity extends AppCompatActivity {
 
         fa=this;
 
-        //Cargar archivo xml
-
-
-        //-------------------------------------------------------------------------------------------
-
         //instacia firebase auth
        auth = FirebaseAuth.getInstance();
         db = FirebaseDatabase.getInstance().getReference();
@@ -90,9 +97,11 @@ public class SinginActivity extends AppCompatActivity {
         spinPrograma = (Spinner) findViewById(R.id.spinprograma);
         buttonMaterias = (Button) findViewById(R.id.buttonMaterias);
 
+        rg=(RadioGroup) findViewById(R.id.rg);
+        rbNo=(RadioButton) findViewById(R.id.rbNo);
+        rbSi=(RadioButton) findViewById(R.id.rbSi);
 
-
-
+        builder = new AlertDialog.Builder(this);
 
 
         spinPrograma.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -127,12 +136,16 @@ public class SinginActivity extends AppCompatActivity {
       buttonMaterias.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
+
+              validRB=validarRadioButton();
+              System.out.println("Radio button text: "+validRB);
+
               if(!programa.isEmpty()){
                   System.out.println("Programa btn"+programa);
                   String[] materiasp=EleccionPrograma(programa);
 
 
-                  ArrayList<String> allMaterias = new ArrayList<String>();
+                 final ArrayList<String> allMaterias = new ArrayList<String>();
 
 
                   for (int i=0;i<materias.length;i++){
@@ -159,22 +172,59 @@ public class SinginActivity extends AppCompatActivity {
 
 
 
+                  if(validRB.equals("Si")){
+                      msg=getString(R.string.redireccion,"enseñar");
+                  }else if(validRB.equals("No")){
+                      msg=getString(R.string.redireccion,"estudiar");
 
-                  Intent intent = new Intent(SinginActivity.this, ElectMateriasActivity.class);
+                  }
 
+                  System.out.println("Radio msg: "+msg);
 
 
                   if (!name.isEmpty() && !email.isEmpty() && !pwd.isEmpty() && !cpwd.isEmpty() && !programa.isEmpty() && !univ.isEmpty()) {
                       if (pwd.length() >= 6) {
                           if (pwd.equals(cpwd)) {
-                              intent.putStringArrayListExtra("materias", allMaterias);
-                              intent.putExtra("email",email);
-                              intent.putExtra("pwd",pwd);
-                              intent.putExtra("name",name);
-                              intent.putExtra("programa",programa);
-                              intent.putExtra("universidad",univ);
-                              intent.putExtra("phone",phone);
-                              startActivity(intent);
+
+
+
+
+                              //alert dialog
+
+                              //Setting message manually and performing action on button click
+                              builder.setMessage(msg)
+                                      .setCancelable(false)
+                                      .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                                          public void onClick(DialogInterface dialog, int id) {
+                                              Intent intent = new Intent(SinginActivity.this, ElectMateriasActivity.class);
+                                              //intent
+                                              intent.putStringArrayListExtra("materias", allMaterias);
+                                              intent.putExtra("email",email);
+                                              intent.putExtra("pwd",pwd);
+                                              intent.putExtra("name",name);
+                                              intent.putExtra("programa",programa);
+                                              intent.putExtra("universidad",univ);
+                                              intent.putExtra("phone",phone);
+                                              intent.putExtra("radioBtn",validRB);
+                                              startActivity(intent);
+
+
+
+
+                                          }
+                                      });
+
+                              AlertDialog alert = builder.create();
+                              //Setting the title manually
+                              alert.setTitle("StudyGround");
+                              alert.setIcon(R.mipmap.ic_launcher);
+                              alert.show();
+
+
+
+
+
+
                           } else {
                               Toast.makeText(SinginActivity.this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
                           }
@@ -202,6 +252,15 @@ public class SinginActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private String validarRadioButton(){
+        if(rbNo.isChecked()){
+            rb=rbNo.getText().toString();
+        }else if(rbSi.isChecked()){
+            rb=rbSi.getText().toString();
+        }
+        return rb;
     }
 
 
@@ -247,4 +306,8 @@ public class SinginActivity extends AppCompatActivity {
         }
         return materiasp;
     }
+
+
+
+
 }
