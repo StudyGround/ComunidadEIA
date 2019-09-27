@@ -374,6 +374,7 @@
 
     <string name="title_activity_study">StudyActivity</string>
     <string name="title_activity_maps">Ubicación usuario</string>
+    <string name="default_notification_channel_id">Notification firebase</string>
 
 
 </resources>

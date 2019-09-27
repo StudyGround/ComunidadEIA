@@ -8,7 +8,7 @@ import java.util.List;
 public class UserPojo {
 
 
-    String programa,email,uid,name;
+    String programa,email,uid,name,tutor;
     List materias[];
 
 
@@ -45,6 +45,11 @@ public class UserPojo {
     public void setName(String name) {
         this.name = name;
     }
+
+    public String getTutor() { return tutor; }
+
+    public void setTutor(String tutor) { this.tutor = tutor; }
+
 
     public List[] getMaterias() {
         return materias;

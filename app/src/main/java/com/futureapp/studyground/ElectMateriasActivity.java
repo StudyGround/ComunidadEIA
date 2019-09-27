@@ -40,9 +40,10 @@ public class ElectMateriasActivity extends AppCompatActivity implements SearchVi
     String programa="";
     String univ="";
     String phone="";
-    String validRB="";
+    String validRB="no";
 
     ArrayList<String> materiasEscogidas=new ArrayList<String>() ;
+    ArrayList<String> materiasTeach=new ArrayList<String>() ;
 
     ListViewItemCheckboxBaseAdapter listViewDataAdapter;
 
@@ -59,15 +60,21 @@ public class ElectMateriasActivity extends AppCompatActivity implements SearchVi
 
         btnRegistro=(Button) findViewById(R.id.btnRegistro);
 
+
+
         final ArrayList<String> listaMaterias = (ArrayList<String>) getIntent().getStringArrayListExtra("materias");
 
-         email=getIntent().getStringExtra("email");
+        email=getIntent().getStringExtra("email");
          pwd=getIntent().getStringExtra("pwd");
          name=getIntent().getStringExtra("name");
          programa=getIntent().getStringExtra("programa");
          univ=getIntent().getStringExtra("univ");
          phone=getIntent().getStringExtra("phone");
          validRB=getIntent().getStringExtra("radioBtn");
+
+        if(validRB.equals("Si")){
+            materiasTeach = (ArrayList<String>) getIntent().getStringArrayListExtra("materiasT");
+        }
 
 
         setTitle("Asignaturas");
@@ -120,7 +127,6 @@ public class ElectMateriasActivity extends AppCompatActivity implements SearchVi
                     }
                 }
 
-                Toast.makeText(getApplicationContext(), "select item text : " + itemDto.getItemText(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -130,12 +136,8 @@ public class ElectMateriasActivity extends AppCompatActivity implements SearchVi
             @Override
             public void onClick(View view) {
 
-                if(validRB.equals("No")){
-                    //Registrar usuario
+
                     registerUser();
-                }else if(validRB.equals(("Si"))){
-                    registerUser();
-                }
 
 
                     }
@@ -179,6 +181,7 @@ public class ElectMateriasActivity extends AppCompatActivity implements SearchVi
                     map.put("programa", programa);
                     map.put("universidad", univ);
                     map.put("telefono",phone);
+                    map.put("tutor",validRB);
 
                     final String id = auth.getCurrentUser().getUid();
 
@@ -190,12 +193,13 @@ public class ElectMateriasActivity extends AppCompatActivity implements SearchVi
                             if (task2.isSuccessful()) {
 
                                 System.out.println("index registro fase 2 bien");
-                                registerMaterias(materiasEscogidas);
+
 
                                 if(validRB.equals(("Si"))){
-                                    registerMateriasTeach(materiasEscogidas);
+                                    registerMateriasTeach(materiasTeach);
                                 }
 
+                                registerMaterias(materiasEscogidas);
 
 
                             } else {
@@ -236,6 +240,8 @@ public class ElectMateriasActivity extends AppCompatActivity implements SearchVi
         });
     }
 
+
+
     private void registerMateriasTeach(List materiasEscogidas){
         final String id = auth.getCurrentUser().getUid();
 
@@ -244,11 +250,6 @@ public class ElectMateriasActivity extends AppCompatActivity implements SearchVi
             public void onComplete(@NonNull Task<Void> task4) {
                 if(task4.isSuccessful()) {
                     System.out.println("index registro fase 4 bien");
-                    Toast.makeText(ElectMateriasActivity.this, "Datos subidos correctamente", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(ElectMateriasActivity.this, ProfileMainActivity.class));
-                    SinginActivity.fa.finish();
-                    finish();
-
 
                 }else{
                     System.out.println("Fase 4 no exitosa");

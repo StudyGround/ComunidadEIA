@@ -67,7 +67,7 @@ public class SinginActivity extends AppCompatActivity {
 
     AlertDialog.Builder builder;
 
-    String clase="ElectMateriasActivity.class";
+    Intent intent;
 
     // Variables firebase
     FirebaseAuth auth;
@@ -200,7 +200,15 @@ public class SinginActivity extends AppCompatActivity {
                                       .setCancelable(false)
                                       .setPositiveButton("ok", new DialogInterface.OnClickListener() {
                                           public void onClick(DialogInterface dialog, int id) {
-                                              Intent intent = new Intent(SinginActivity.this, validRB.equals("Si")?ElectMateriasTeachActivity.class:ElectMateriasActivity.class);
+
+                                              if(validRB.equals("Si")){
+                                                   intent = new Intent(SinginActivity.this, ElectMateriasTeachActivity.class);
+
+                                              }else if(validRB.equals("No")){
+                                                  intent = new Intent(SinginActivity.this,ElectMateriasActivity.class);
+
+                                              }
+
                                               //intent
                                               intent.putStringArrayListExtra("materias", allMaterias);
                                               intent.putExtra("email",email);

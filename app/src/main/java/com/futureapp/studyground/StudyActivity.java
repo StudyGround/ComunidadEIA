@@ -64,7 +64,6 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String item = arrayList.get(position);
-                Toast.makeText(getApplicationContext(), "You selected : " + item, Toast.LENGTH_SHORT).show();
 
                 Intent intent =new Intent(StudyActivity.this, SearchPartnerActivity.class);
                 intent.putExtra("materiaStudy",item);
@@ -77,29 +76,6 @@ public class StudyActivity extends AppCompatActivity {
 
                 intent.putExtra("option",op);
 
-
-             /*   NotificationCompat.Builder mBuilder;
-                NotificationManager mNotifyMgr =(NotificationManager) getApplicationContext().getSystemService(NOTIFICATION_SERVICE);
-
-
-                createNotificationChannel();
-
-                int icono = R.mipmap.ic_launcher;
-                Intent i=new Intent(StudyActivity.this, MapsActivity.class);
-                PendingIntent pendingIntent = PendingIntent.getActivity(StudyActivity.this, 0, i, 0);
-
-                mBuilder =new NotificationCompat.Builder(getApplicationContext())
-                        .setContentIntent(pendingIntent)
-                        .setSmallIcon(icono)
-                        .setContentTitle("StudyGround")
-                        .setContentText("Hola, hay alguien que quiere estudiar, "+item)
-                        .setVibrate(new long[] {100, 250, 100, 500})
-                        .setAutoCancel(true)
-                        .setChannelId("Channel");
-
-                System.out.println(mBuilder);
-
-                mNotifyMgr.notify(1, mBuilder.build());*/
 
 
                 startActivity(intent);

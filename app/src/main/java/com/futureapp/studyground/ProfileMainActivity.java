@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -33,7 +34,11 @@ public class ProfileMainActivity extends AppCompatActivity {
     DatabaseReference db;
 
     ArrayList<String> arrayList=new ArrayList<>();
+    ArrayList<String> arrayListTeach=new ArrayList<>();
 
+    String tutor;
+
+    @SuppressLint("WrongConstant")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,10 +60,31 @@ public class ProfileMainActivity extends AppCompatActivity {
 
                 String text=getString(R.string.welcome_messages,userPojo.getName());
 
+                tutor=userPojo.getTutor();
+
+                System.out.println("Datasnapshot tutor: "+tutor);
+
+                if(tutor.equals("No")){
+                    teach.setVisibility(0);
+                }
+
                 db.child("Materias").addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot2) {
                         arrayList=(ArrayList) dataSnapshot2.getValue();
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        Log.e("ERROR FIREBASE",databaseError.getMessage());
+                    }
+                });
+
+                db.child("MateriasTeach").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot3) {
+                        arrayListTeach=(ArrayList) dataSnapshot3.getValue();
 
                     }
 
@@ -91,6 +117,8 @@ public class ProfileMainActivity extends AppCompatActivity {
         txtWelcome=(TextView) findViewById(R.id.welcome);
 
 
+
+
         study.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -106,7 +134,7 @@ public class ProfileMainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(ProfileMainActivity.this, StudyActivity.class);
-                intent.putStringArrayListExtra("materiasEsc",arrayList);
+                intent.putStringArrayListExtra("materiasEsc",arrayListTeach);
                 intent.putExtra("option","enseñar");
                 startActivity(intent);
 
