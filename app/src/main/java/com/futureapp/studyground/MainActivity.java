@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     FirebaseAuth.AuthStateListener authStateListener;
     DatabaseReference db;
 
-
+    private static final String TAG = "TAGMainActivity";
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
         }, DURACION_SPLASH);
     }
 
+
     private void inicialize() {
         auth2=FirebaseAuth.getInstance();
 
@@ -80,4 +81,6 @@ public class MainActivity extends AppCompatActivity {
             }
         };
     }
+
+
 }

@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "160433711387-93g0klaj41kml9vdg84pebfo00jkfdah.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.futureapp.studyground",
+            "certificate_hash": "ce0fbdbe12a6a5019fc851be197363f3c4f9a5fc"
+          }
+        },
+        {
           "client_id": "160433711387-c9dsaed68urvof0g0k7hvjgtd2i547ii.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
