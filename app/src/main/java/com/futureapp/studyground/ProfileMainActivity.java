@@ -8,9 +8,12 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -29,6 +32,7 @@ public class ProfileMainActivity extends AppCompatActivity {
     private ImageButton study;
     private TextView txtWelcome;
     private TextView txtMaterias;
+    private Toolbar toolbar;
 
     FirebaseAuth auth;
     DatabaseReference db;
@@ -42,9 +46,10 @@ public class ProfileMainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Toolbar toolbar = findViewById(R.id.toolbar2);
-        setSupportActionBar(toolbar);
         setContentView(R.layout.activity_profile_main);
+
+        Toolbar toolbar = findViewById(R.id.toolbar3);
+        setSupportActionBar(toolbar);
 
         auth = FirebaseAuth.getInstance();
         String id=auth.getCurrentUser().getUid();
@@ -146,6 +151,18 @@ public class ProfileMainActivity extends AppCompatActivity {
 
 
 
+    }
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+    public boolean onOptionsItemSelected(MenuItem menuItem){
+        switch (menuItem.getItemId()){
+            case R.id.SingOut:
+                Toast.makeText(this,"Pulsaste el boton para cerrar sesion",Toast.LENGTH_LONG);
+                break;
+        }
+        return true;
     }
 
 }
