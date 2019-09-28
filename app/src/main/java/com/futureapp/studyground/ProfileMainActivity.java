@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -41,6 +43,8 @@ public class ProfileMainActivity extends AppCompatActivity {
     ArrayList<String> arrayListTeach=new ArrayList<>();
 
     String tutor;
+
+    AlertDialog.Builder builder;
 
     @SuppressLint("WrongConstant")
     @Override
@@ -148,7 +152,7 @@ public class ProfileMainActivity extends AppCompatActivity {
 
 
 
-
+        builder = new AlertDialog.Builder(this);
 
 
     }
@@ -159,7 +163,19 @@ public class ProfileMainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem menuItem){
         switch (menuItem.getItemId()){
             case R.id.SingOut:
-                Toast.makeText(this,"Pulsaste el boton para cerrar sesion",Toast.LENGTH_LONG);
+                builder.setMessage("Seras redirigido a las materias que vas a estudiar")
+                        .setCancelable(true)
+                        .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+
+                            }
+                        });
+
+                AlertDialog alert = builder.create();
+                //Setting the title manually
+                alert.setTitle("StudyGround");
+                alert.setIcon(R.mipmap.ic_launcher);
+                alert.show();
                 break;
         }
         return true;

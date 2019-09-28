@@ -13,6 +13,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 
+
 public class MainActivity extends AppCompatActivity {
 
     private final int DURACION_SPLASH = 3000; // 3 segundos
@@ -25,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "TAGMainActivity";
     @Override
     public void onCreate(Bundle savedInstanceState) {
-
 
 
         super.onCreate(savedInstanceState);
