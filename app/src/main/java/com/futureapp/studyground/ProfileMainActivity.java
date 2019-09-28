@@ -42,7 +42,7 @@ public class ProfileMainActivity extends AppCompatActivity {
     ArrayList<String> arrayList=new ArrayList<>();
     ArrayList<String> arrayListTeach=new ArrayList<>();
 
-    String tutor;
+    String tutor,id;
 
     AlertDialog.Builder builder;
 
@@ -56,7 +56,7 @@ public class ProfileMainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         auth = FirebaseAuth.getInstance();
-        String id=auth.getCurrentUser().getUid();
+        id=auth.getCurrentUser().getUid();
         db = FirebaseDatabase.getInstance().getReference("Users").child(id);
 
 
@@ -163,10 +163,18 @@ public class ProfileMainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem menuItem){
         switch (menuItem.getItemId()){
             case R.id.SingOut:
-                builder.setMessage("Seras redirigido a las materias que vas a estudiar")
+                builder.setMessage("¿Estas seguro de cerrar sesión?")
                         .setCancelable(true)
-                        .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                        .setPositiveButton("Si", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
+                                FirebaseAuth.getInstance().signOut();
+                                Intent intent=new Intent(ProfileMainActivity.this,LoginActivity.class);
+                                startActivity(intent);
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
 
                             }
                         });
