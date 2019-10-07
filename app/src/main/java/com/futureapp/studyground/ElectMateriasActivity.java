@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -20,6 +21,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -200,6 +202,7 @@ public class ElectMateriasActivity extends AppCompatActivity implements SearchVi
                                 }
 
                                 registerMaterias(materiasEscogidas);
+                                subscribeTopic(materiasEscogidas);
 
 
                             } else {
@@ -282,6 +285,34 @@ public class ElectMateriasActivity extends AppCompatActivity implements SearchVi
         }
 
         return ret;
+    }
+
+    //Suscripcion a topics de materias
+    private void subscribeTopic(final List materiasEscogidas) {
+
+        for (int i=0;i<materiasEscogidas.size();i++) {
+
+            final int j=i;
+            String matEscogida=materiasEscogidas.get(i).toString().replace(" ","_");
+            // [START subscribe_topics]
+            FirebaseMessaging.getInstance().subscribeToTopic(matEscogida)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+
+                            if(j==materiasEscogidas.size()-1){
+                                String msg = ("Suscrito");
+                                if (!task.isSuccessful()) {
+                                    msg = ("Fallo al suscribir");
+                                }
+
+                                Toast.makeText(ElectMateriasActivity.this, msg, Toast.LENGTH_SHORT).show();
+                            }
+
+                        }
+                    });
+            // [END subscribe_topics]
+        }
     }
 
 }

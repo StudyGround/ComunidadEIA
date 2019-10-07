@@ -115,7 +115,7 @@ public class SearchPartnerActivity extends AppCompatActivity {
                 AlertDialog alert = builder.create();
                 //Setting the title manually
                 alert.setTitle("StudyGround");
-                alert.setIcon(R.mipmap.ic_launcher_round);
+                alert.setIcon(R.mipmap.ic_launcher);
                 alert.show();
                 break;
         }
