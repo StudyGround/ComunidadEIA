@@ -1,5 +1,6 @@
 package com.futureapp.studyground;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
@@ -26,6 +27,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.GenericTypeIndicator;
+import com.google.firebase.database.ValueEventListener;
 
 public class SearchPartnerActivity extends AppCompatActivity {
 
@@ -37,6 +44,9 @@ public class SearchPartnerActivity extends AppCompatActivity {
     NotificationChannel channel;
 
     AlertDialog.Builder builder;
+
+
+    Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +66,6 @@ public class SearchPartnerActivity extends AppCompatActivity {
         txtBusqueda.setText(text);
 
 
-
         //notificacion
 
         NotificationCompat.Builder mBuilder;
@@ -69,6 +78,8 @@ public class SearchPartnerActivity extends AppCompatActivity {
         Intent i=new Intent(SearchPartnerActivity.this, MapsActivity.class);
 
         PendingIntent pendingIntent = PendingIntent.getActivity(SearchPartnerActivity.this, 0, i, 0);
+
+
 
         mBuilder =new NotificationCompat.Builder(getApplicationContext())
                 .setContentIntent(pendingIntent)
@@ -89,6 +100,8 @@ public class SearchPartnerActivity extends AppCompatActivity {
 
 
     }
+
+
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;

@@ -1,16 +1,20 @@
 package com.futureapp.studyground;
 
+import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -19,6 +23,14 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.GenericTypeIndicator;
+import com.google.firebase.database.ValueEventListener;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -28,7 +40,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     LocationManager locationManager;
 
+    DatabaseReference db;
+    FirebaseAuth auth;
+    String id;
+    String telefono="111";
 
+    FloatingActionButton fab;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +54,39 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        fab=(FloatingActionButton)findViewById(R.id.fab);
+
+        auth = FirebaseAuth.getInstance();
+        id=auth.getCurrentUser().getUid();
+        db = FirebaseDatabase.getInstance().getReference("Users").child(id);
+
+
+        //read firebase database (real time)
+        db.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                GenericTypeIndicator<UserPojo> user = new GenericTypeIndicator<UserPojo>() {
+                };
+                UserPojo userPojo = dataSnapshot.getValue(user);
+                telefono=userPojo.getTelefono();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri uri = Uri.parse("https://wa.me/57"+telefono);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
+
 
         //mapa google maps
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);

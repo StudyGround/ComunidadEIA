@@ -6,4 +6,21 @@
     android:name="com.google.android.gms.maps.SupportMapFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MapsActivity" />
+    tools:context=".MapsActivity" >
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:layout_gravity="bottom|right|end"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="wpp"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        android:fontFamily="@font/medium"
+        map:fabSize="normal" />
+
+
+</fragment>

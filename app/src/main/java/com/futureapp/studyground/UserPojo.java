@@ -8,11 +8,19 @@ import java.util.List;
 public class UserPojo {
 
 
-    String programa,email,uid,name,tutor;
+    String programa,email,uid,name,tutor,telefono;
     List materias[];
 
 
     public UserPojo() { }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
 
     public String getPrograma() {
         return programa;
