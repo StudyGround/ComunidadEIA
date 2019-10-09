@@ -293,12 +293,23 @@ public class ElectMateriasActivity extends AppCompatActivity implements SearchVi
         for (int i=0;i<materiasEscogidas.size();i++) {
 
             final int j=i;
-            String matEscogida=materiasEscogidas.get(i).toString().replace(" ","_");
+            final String matEscogida=materiasEscogidas.get(i).toString()
+                    .replace(" ","_")
+                    .replace("á","a")
+                    .replace("é","e")
+                    .replace("í","i")
+                    .replace("ó","o")
+                    .replace("ú","u")
+                    .replace("ñ","n")
+                    .replace(",","_");
+
             // [START subscribe_topics]
             FirebaseMessaging.getInstance().subscribeToTopic(matEscogida)
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
+
+                            System.out.println("Suscrito a:"+matEscogida+" orden"+j);
 
                             if(j==materiasEscogidas.size()-1){
                                 String msg = ("Suscrito");

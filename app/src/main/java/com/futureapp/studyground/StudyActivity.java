@@ -110,6 +110,7 @@ public class StudyActivity extends AppCompatActivity {
                                 FirebaseAuth.getInstance().signOut();
                                 Intent intent=new Intent(StudyActivity.this,LoginActivity.class);
                                 startActivity(intent);
+                                finish();
                             }
                         })
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {

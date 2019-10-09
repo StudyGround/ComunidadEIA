@@ -186,8 +186,8 @@ public class SinginActivity extends AppCompatActivity {
                   System.out.println("Radio msg: "+msg);
 
 
-                  if (!name.isEmpty() && !email.isEmpty() && !pwd.isEmpty() && !cpwd.isEmpty() && !programa.isEmpty() && !univ.isEmpty()) {
-                      if (pwd.length() >= 6) {
+                  if (!name.isEmpty() && !email.isEmpty() && !pwd.isEmpty() && !cpwd.isEmpty() && !programa.isEmpty() && !univ.isEmpty() && !phone.isEmpty()) {
+                      if (pwd.length() >= 1) {
                           if (pwd.equals(cpwd)) {
 
 

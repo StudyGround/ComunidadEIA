@@ -116,6 +116,7 @@ public class SearchPartnerActivity extends AppCompatActivity {
                                 FirebaseAuth.getInstance().signOut();
                                 Intent intent=new Intent(SearchPartnerActivity.this,LoginActivity.class);
                                 startActivity(intent);
+                                finish();
                             }
                         })
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
