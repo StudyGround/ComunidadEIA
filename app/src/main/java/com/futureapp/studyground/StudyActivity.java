@@ -1,5 +1,6 @@
 package com.futureapp.studyground;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.NotificationCompat;
@@ -21,11 +22,24 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.futureapp.studyground.fcm.Notification;
+import com.futureapp.studyground.fcm.Response;
+import com.futureapp.studyground.fcm.Sender;
+import com.futureapp.studyground.fcm.WS;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class StudyActivity extends AppCompatActivity {
 
@@ -75,16 +89,21 @@ public class StudyActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String item = arrayList.get(position);
 
+
                 Intent intent =new Intent(StudyActivity.this, SearchPartnerActivity.class);
                 intent.putExtra("materiaStudy",item);
 
-                if(opcionTS.equals("enseñar")){
+               /* if(opcionTS.equals("enseñar")){
                     op="aprender";
                 }else{
                     op="estudiar o enseñar ";
                 }
 
-                intent.putExtra("option",op);
+                intent.putExtra("option",op);*/
+
+
+
+
 
 
 
@@ -92,10 +111,14 @@ public class StudyActivity extends AppCompatActivity {
             }
         });
 
-        builder = new AlertDialog.Builder(this);
+       // builder = new AlertDialog.Builder(this);
 
 
     }
+
+
+
+
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
@@ -129,6 +152,8 @@ public class StudyActivity extends AppCompatActivity {
         }
         return true;
     }
+
+
 
 
     private void createNotificationChannel() {

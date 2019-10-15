@@ -26,6 +26,10 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.futureapp.studyground.fcm.Notification;
+import com.futureapp.studyground.fcm.Response;
+import com.futureapp.studyground.fcm.Sender;
+import com.futureapp.studyground.fcm.WS;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -33,6 +37,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SearchPartnerActivity extends AppCompatActivity {
 
@@ -66,7 +75,10 @@ public class SearchPartnerActivity extends AppCompatActivity {
         txtBusqueda.setText(text);
 
 
-        //notificacion
+        enviarNotificacion(materia);
+
+
+     /*   //notificacion
 
         NotificationCompat.Builder mBuilder;
         NotificationManager mNotifyMgr =(NotificationManager) getApplicationContext().getSystemService(NOTIFICATION_SERVICE);
@@ -96,10 +108,79 @@ public class SearchPartnerActivity extends AppCompatActivity {
 
 
 
-        builder = new AlertDialog.Builder(this);
+        builder = new AlertDialog.Builder(this);*/
+
+
+
+
+
+
+
+
 
 
     }
+
+    public void enviarNotificacion(String materia){
+        System.out.println("TOPIC ENTRO A ENVIAR NOTI");
+
+        String topic="/topic/"+subscribeTopic(materia);
+        System.out.println("TOPIC : "+topic);
+
+        WS enviarPush= new Retrofit.Builder().baseUrl("https://fcm.googleapis.com/").addConverterFactory(GsonConverterFactory.create()).build().create(WS.class);
+
+
+        Notification notificacion=new Notification("Studyground","alguien quiere estudiar "+materia.toLowerCase()+" contigo");
+        Sender sender=new Sender(topic,notificacion);
+
+        enviarPush.enviarNotificacion(sender).enqueue(new Callback<Response>() {
+            @Override
+            public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
+                System.out.println("TOPIC entra on response");
+                if(response.body().getSuccess()==1){
+                    Toast.makeText(getApplicationContext(),"Mensaje enviado",Toast.LENGTH_LONG).show();
+                    System.out.println("TOPIC MENSAJE ENVIADO");
+                }else{
+                    Toast.makeText(getApplicationContext(),"Mensaje NO enviado",Toast.LENGTH_SHORT).show();
+                    System.out.println("TOPIC MENSAJE NO ENVIADO");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Response> call, Throwable t) {
+                System.out.println("TOPIC entra on failure throw: "+t+" call: "+call);
+            }
+        });
+
+    }
+
+    private String subscribeTopic(final String materiasEscogida) {
+
+        return  materiasEscogida
+                .replace(" ","_")
+                .replace("á","a")
+                .replace("é","e")
+                .replace("í","i")
+                .replace("ó","o")
+                .replace("ú","u")
+                .replace("ñ","n")
+                .replace(",","_")
+                .replace("|","I")
+                .replace("Á","A")
+                .replace("É","E")
+                .replace("Í","I")
+                .replace("Ó","O")
+                .replace("Ú","U")
+                .replace("Ñ","N");
+
+    }
+
+
+
+
+
+
+
 
 
     public boolean onCreateOptionsMenu(Menu menu){

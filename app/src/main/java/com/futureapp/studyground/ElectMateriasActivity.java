@@ -21,6 +21,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
@@ -199,10 +200,15 @@ public class ElectMateriasActivity extends AppCompatActivity implements SearchVi
 
                                 if(validRB.equals(("Si"))){
                                     registerMateriasTeach(materiasTeach);
+                                    subscribeTopicT(materiasTeach);
                                 }
 
                                 registerMaterias(materiasEscogidas);
                                 subscribeTopic(materiasEscogidas);
+
+
+
+
 
 
                             } else {
@@ -301,10 +307,63 @@ public class ElectMateriasActivity extends AppCompatActivity implements SearchVi
                     .replace("ó","o")
                     .replace("ú","u")
                     .replace("ñ","n")
-                    .replace(",","_");
+                    .replace(",","_")
+                    .replace("|","I")
+                    .replace("Á","A")
+                    .replace("É","E")
+                    .replace("Í","I")
+                    .replace("Ó","O")
+                    .replace("Ú","U")
+                    .replace("Ñ","N");
 
             // [START subscribe_topics]
             FirebaseMessaging.getInstance().subscribeToTopic(matEscogida)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+
+                            System.out.println("Suscrito a:"+matEscogida+" orden"+j);
+
+                            if(j==materiasEscogidas.size()-1){
+                                String msg = ("Suscrito");
+                                if (!task.isSuccessful()) {
+                                    msg = ("Fallo al suscribir");
+                                }
+
+                                Toast.makeText(ElectMateriasActivity.this, msg, Toast.LENGTH_SHORT).show();
+                            }
+
+                        }
+                    });
+            // [END subscribe_topics]
+        }
+    }
+
+    //Suscripcion a topics de materias
+    private void subscribeTopicT(final List materiasEscogidas) {
+
+        for (int i=0;i<materiasEscogidas.size();i++) {
+
+            final int j=i;
+            final String matEscogida=materiasEscogidas.get(i).toString()
+                    .replace(" ","_")
+                    .replace("á","a")
+                    .replace("é","e")
+                    .replace("í","i")
+                    .replace("ó","o")
+                    .replace("ú","u")
+                    .replace("ñ","n")
+                    .replace(",","_")
+                    .replace("|","I")
+                    .replace("Á","A")
+                    .replace("É","E")
+                    .replace("Í","I")
+                    .replace("Ó","O")
+                    .replace("Ú","U")
+                    .replace("Ñ","N");
+
+            // [START subscribe_topics]
+            FirebaseMessaging.getInstance().subscribeToTopic(matEscogida+"_teach")
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
