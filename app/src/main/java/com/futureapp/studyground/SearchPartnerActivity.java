@@ -1,6 +1,7 @@
 package com.futureapp.studyground;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
@@ -21,22 +22,35 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.futureapp.studyground.fcm.Data;
 import com.futureapp.studyground.fcm.Notification;
 import com.futureapp.studyground.fcm.Response;
 import com.futureapp.studyground.fcm.Sender;
 import com.futureapp.studyground.fcm.WS;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
+
+import java.sql.SQLOutput;
+import java.util.AbstractList;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -47,7 +61,7 @@ public class SearchPartnerActivity extends AppCompatActivity {
 
     private static final String TAG = "search";
 
-    String materia,option;
+    String materia,option,msg,topic;
     TextView txtBusqueda, txtLongitud;
 
     NotificationChannel channel;
@@ -56,6 +70,16 @@ public class SearchPartnerActivity extends AppCompatActivity {
 
 
     Bundle bundle;
+
+    FirebaseAuth auth;
+    DatabaseReference db;
+    String id,token="",telefono="",name="";
+
+    double longitudeGPS,latitudeGPS, longitude, latitude;
+
+    LocationManager locationManager;
+
+    Map<String,String> map=new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,41 +98,83 @@ public class SearchPartnerActivity extends AppCompatActivity {
 
         txtBusqueda.setText(text);
 
+        builder = new AlertDialog.Builder(this);
 
-        enviarNotificacion(materia);
+        //MAPA
 
-
-     /*   //notificacion
-
-        NotificationCompat.Builder mBuilder;
-        NotificationManager mNotifyMgr =(NotificationManager) getApplicationContext().getSystemService(NOTIFICATION_SERVICE);
+        //mapa google maps
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
 
-        createNotificationChannel();
+        ActivityCompat.requestPermissions(SearchPartnerActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, /* Este codigo es para identificar tu request */ 1);
 
-        int icono = R.mipmap.ic_launcher;
-        Intent i=new Intent(SearchPartnerActivity.this, MapsActivity.class);
-
-        PendingIntent pendingIntent = PendingIntent.getActivity(SearchPartnerActivity.this, 0, i, 0);
+        if (ContextCompat.checkSelfPermission(SearchPartnerActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            // Permission is not granted
+        }
 
 
 
-        mBuilder =new NotificationCompat.Builder(getApplicationContext())
-                .setContentIntent(pendingIntent)
-                .setSmallIcon(icono)
-                .setContentTitle("StudyGround")
-                .setContentText("Hola, hay alguien que quiere estudiar, "+materia)
-                .setVibrate(new long[] {100, 250, 100, 500})
-                .setAutoCancel(true)
-                .setChannelId("Channel");
+        LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+        Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        if(location.getLatitude()!=0 && location.getLongitude()!=0) {
+            longitude = location.getLongitude();
+            latitude = location.getLatitude();
+        }else{
 
-        System.out.println(mBuilder);
-
-        mNotifyMgr.notify(1, mBuilder.build());
+        }
+        System.out.println("GPS dd lon"+longitude+" lat: "+latitude);
 
 
+        auth = FirebaseAuth.getInstance();
+        id=auth.getCurrentUser().getUid();
+        db = FirebaseDatabase.getInstance().getReference("Users").child(id);
 
-        builder = new AlertDialog.Builder(this);*/
+
+        //read firebase database (real time)
+        db.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                GenericTypeIndicator<UserPojo> user = new GenericTypeIndicator<UserPojo>() {};
+                UserPojo userPojo = dataSnapshot.getValue(user);
+
+                token=userPojo.getToken();
+                telefono=userPojo.getTelefono();
+                name=userPojo.getName();
+                System.out.println("TOPIC phone: "+telefono);
+
+                if(longitude!=0 && latitude!=0) {
+                    System.out.println("GPS bb lonLat" + longitude + " , " + latitude);
+                    System.out.println("TOPIC phone2: "+telefono);
+
+
+
+                    if(option.equals("aprender")){
+                        msg=name+" quiere enseñar "+materia.toLowerCase();
+
+
+                    }else{
+                        msg=name+" quiere aprender "+materia.toLowerCase();
+                        topic="/topics/"+subscribeTopic(materia)+"_teach";
+                        enviarNotificacion(topic,msg ,telefono,latitude,longitude,name);
+
+                        msg=name+" quiere estudiar "+materia.toLowerCase();
+                    }
+
+                    topic="/topics/"+subscribeTopic(materia);
+                    enviarNotificacion(topic,msg ,telefono,latitude,longitude,name);
+
+                }else{
+                    System.out.println("GPS cc lonLat" + longitude + " , " + latitude);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
 
 
@@ -121,23 +187,41 @@ public class SearchPartnerActivity extends AppCompatActivity {
 
     }
 
-    public void enviarNotificacion(String materia){
+
+
+    public void enviarNotificacion(String topic,String msg ,String telefono , double lat, double lon, String name){
         System.out.println("TOPIC ENTRO A ENVIAR NOTI");
 
-        String topic="/topic/"+subscribeTopic(materia);
+
+
         System.out.println("TOPIC : "+topic);
 
         WS enviarPush= new Retrofit.Builder().baseUrl("https://fcm.googleapis.com/").addConverterFactory(GsonConverterFactory.create()).build().create(WS.class);
 
+        //Data
 
-        Notification notificacion=new Notification("Studyground","alguien quiere estudiar "+materia.toLowerCase()+" contigo");
-        Sender sender=new Sender(topic,notificacion);
+        String longitud= Double.toString(lon);
+        String latitud= Double.toString(lat);
+
+
+
+        Notification notificacion=new Notification("Studyground",msg);
+        Data data=new Data(latitud,longitud,name,telefono);
+
+        Sender sender=new Sender(topic,notificacion,data);
+
+
+        System.out.println("TOPIC data: "+data.getName());
+
 
         enviarPush.enviarNotificacion(sender).enqueue(new Callback<Response>() {
             @Override
             public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
                 System.out.println("TOPIC entra on response");
-                if(response.body().getSuccess()==1){
+                System.out.println("TOPIC satisfaccion: "+response.isSuccessful());
+
+
+                if(response.isSuccessful()){
                     Toast.makeText(getApplicationContext(),"Mensaje enviado",Toast.LENGTH_LONG).show();
                     System.out.println("TOPIC MENSAJE ENVIADO");
                 }else{
@@ -174,7 +258,6 @@ public class SearchPartnerActivity extends AppCompatActivity {
                 .replace("Ñ","N");
 
     }
-
 
 
 

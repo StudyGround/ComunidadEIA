@@ -17,6 +17,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,6 +27,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 
 import java.util.ArrayList;
 
@@ -35,6 +39,8 @@ public class ProfileMainActivity extends AppCompatActivity {
     private TextView txtWelcome;
     private TextView txtMaterias;
     private Toolbar toolbar;
+
+    String token="";
 
     FirebaseAuth auth;
     DatabaseReference db;
@@ -58,6 +64,27 @@ public class ProfileMainActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         id=auth.getCurrentUser().getUid();
         db = FirebaseDatabase.getInstance().getReference("Users").child(id);
+
+        //Get token
+        FirebaseInstanceId.getInstance().getInstanceId()
+                .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<InstanceIdResult> task) {
+                        if (!task.isSuccessful()) {
+                            Log.w("Token", "getInstanceId failed", task.getException());
+                            return;
+                        }
+
+                        // Get new Instance ID token
+                        token = task.getResult().getToken();
+                        System.out.println("TOPIC token: "+token);
+
+                        // Log and toast
+                        String msg ="TOken: "+token;
+                        Log.d("Token", msg);
+                    }
+                });
+
 
 
         //read firebase database (real time)

@@ -93,13 +93,13 @@ public class StudyActivity extends AppCompatActivity {
                 Intent intent =new Intent(StudyActivity.this, SearchPartnerActivity.class);
                 intent.putExtra("materiaStudy",item);
 
-               /* if(opcionTS.equals("enseñar")){
+                if(opcionTS.equals("enseñar")){
                     op="aprender";
                 }else{
                     op="estudiar o enseñar ";
                 }
 
-                intent.putExtra("option",op);*/
+                intent.putExtra("option",op);
 
 
 
@@ -111,7 +111,7 @@ public class StudyActivity extends AppCompatActivity {
             }
         });
 
-       // builder = new AlertDialog.Builder(this);
+        builder = new AlertDialog.Builder(this);
 
 
     }

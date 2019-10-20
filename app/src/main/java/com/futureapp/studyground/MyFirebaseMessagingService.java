@@ -21,7 +21,7 @@ import com.google.firebase.messaging.RemoteMessage;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
-    private static final String TAG = "MyFirebaseMsgService";
+    private static final String TAG = "TOPIC°";
 
     /**
      * Called when message is received.
@@ -53,7 +53,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         // Check if message contains a data payload.
         if (remoteMessage.getData().size() > 0) {
-            Log.d(TAG, "Message data payload: " + remoteMessage.getData());
+            Log.d(TAG, "Message data payload: size: "+remoteMessage.getData().size()+" -- " + remoteMessage.getData());
+
+
 
             if (/* Check if data needs to be processed by long running job */ true) {
                 // For long-running tasks (10 seconds or more) use WorkManager.
@@ -63,15 +65,29 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 handleNow();
             }
 
+        }else {
+            Log.d(TAG, "NO Existe Message data payload: ");
         }
 
         // Check if message contains a notification payload.
         if (remoteMessage.getNotification() != null) {
             Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
+
         }
+
+
+
+
 
         // Also if you intend on generating your own notifications as a result of a received FCM
         // message, here is where that should be initiated. See sendNotification method below.
+
+        /*Intent i=new Intent(MyFirebaseMessagingService.this, MapsActivity.class);
+
+        startActivity(i);*/
+
+
+
     }
     // [END receive_message]
 
@@ -102,6 +118,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         OneTimeWorkRequest work = new OneTimeWorkRequest.Builder(MyWorker.class)
                 .build();
         WorkManager.getInstance().beginWith(work).enqueue();
+
+
+
         // [END dispatch_job]
     }
 
@@ -139,7 +158,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder notificationBuilder =
                 new NotificationCompat.Builder(this, channelId)
-                        .setSmallIcon(R.mipmap.ic_launcher)
+                        .setSmallIcon(R.mipmap.ic_launcher_round)
                         .setContentTitle(getString(R.string.app_name))
                         .setContentText(messageBody)
                         .setAutoCancel(true)

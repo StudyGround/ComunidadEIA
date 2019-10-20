@@ -20,6 +20,8 @@ public class MyWorker extends Worker {
     public Result doWork() {
         Log.d(TAG, "Performing long running task in scheduled job");
         // TODO(developer): add long running task here.
+
+
         return Result.success();
     }
 

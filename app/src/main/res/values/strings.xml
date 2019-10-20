@@ -17,7 +17,7 @@
     <string name="redireccion">Seras redirigido a elegir que materias vas a %1$s</string>
 
     <string-array name="programa">
-        <item>Ingeniería de Sistemas</item>
+        <item>Ingeniería de Sistemas y Computación</item>
         <item>Ingeniería Civil</item>
         <item>Ingeniería Administrativa</item>
         <item>Ingeniería Financiera</item>

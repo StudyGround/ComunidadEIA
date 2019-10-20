@@ -22,6 +22,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
@@ -44,6 +45,7 @@ public class ElectMateriasActivity extends AppCompatActivity implements SearchVi
     String univ="";
     String phone="";
     String validRB="no";
+    String token="";
 
     ArrayList<String> materiasEscogidas=new ArrayList<String>() ;
     ArrayList<String> materiasTeach=new ArrayList<String>() ;
@@ -138,9 +140,26 @@ public class ElectMateriasActivity extends AppCompatActivity implements SearchVi
         btnRegistro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                FirebaseInstanceId.getInstance().getInstanceId()
+                        .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<InstanceIdResult> task) {
+                                if (!task.isSuccessful()) {
+                                    Log.w("Token", "getInstanceId failed", task.getException());
+                                    return;
+                                }
+
+                                // Get new Instance ID token
+                                 token = task.getResult().getToken();
+
+                                // Log and toast
+                                String msg ="TOken: "+token;
+                                Log.d("Token", msg);
+                            }
+                        });
 
 
-                    registerUser();
+                registerUser();
 
 
                     }
@@ -185,6 +204,7 @@ public class ElectMateriasActivity extends AppCompatActivity implements SearchVi
                     map.put("universidad", univ);
                     map.put("telefono",phone);
                     map.put("tutor",validRB);
+                    map.put("token",token);
 
                     final String id = auth.getCurrentUser().getUid();
 

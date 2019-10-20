@@ -282,7 +282,7 @@ public class SinginActivity extends AppCompatActivity {
 
         String[] materiasp=new String[35];
         switch (programa){
-            case "Ingeniería de Sistemas":
+            case "Ingeniería de Sistemas y Computación":
                 materiasp=res.getStringArray(R.array.mSistemas);
                 break;
             case "Ingeniería Civil":
