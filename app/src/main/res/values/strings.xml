@@ -371,6 +371,9 @@
 
     </string-array>
 
+    <string-array name="mFisica">
+
+    </string-array>
 
     <string name="title_activity_study">StudyActivity</string>
     <string name="title_activity_maps">Ubicación usuario</string>

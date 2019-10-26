@@ -313,7 +313,7 @@ public class SinginActivity extends AppCompatActivity {
                 materiasp=res.getStringArray(R.array.mAmbiental);
                 break;
             case "Fisica":
-                materiasp=res.getStringArray(R.array.mSistemas);
+                materiasp=res.getStringArray(R.array.mFisica);
                 break;
         }
         return materiasp;
