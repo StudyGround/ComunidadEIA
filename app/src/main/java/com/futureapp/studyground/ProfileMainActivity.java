@@ -38,6 +38,7 @@ public class ProfileMainActivity extends AppCompatActivity {
     private ImageButton study;
     private TextView txtWelcome;
     private TextView txtMaterias;
+    private  TextView txtTeach;
     private Toolbar toolbar;
 
     String token="";
@@ -84,8 +85,7 @@ public class ProfileMainActivity extends AppCompatActivity {
                         Log.d("Token", msg);
                     }
                 });
-
-
+        txtTeach=(TextView) findViewById(R.id.txtTeach);
 
         //read firebase database (real time)
         db.addValueEventListener(new ValueEventListener() {
@@ -101,7 +101,9 @@ public class ProfileMainActivity extends AppCompatActivity {
                 System.out.println("Datasnapshot tutor: "+tutor);
 
                 if(tutor.equals("No")){
-                    teach.setVisibility(0);
+                    teach.setVisibility(View.INVISIBLE);
+                    txtTeach.setVisibility(View.INVISIBLE);
+
                 }
 
                 db.child("Materias").addValueEventListener(new ValueEventListener() {

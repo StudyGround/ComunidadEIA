@@ -8,15 +8,22 @@ import java.util.Map;
 public class Notification {
     String title;
     String body;
+    String click_action="OPEN_ACTIVITY_1";
 
-    public Notification(String title, String body) {
+    public Notification(String title, String body, String click_action) {
         this.title = title;
         this.body = body;
+        this.click_action=click_action;
 
     }
 
+    public String getClick_action() {
+        return click_action;
+    }
 
-
+    public void setClick_action(String click_action) {
+        this.click_action = click_action;
+    }
 
     public String getTitle() {
         return title;

@@ -27,6 +27,7 @@
              sign the APK for publishing.
              You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
+
         <service
             android:name=".MyFirebaseMessagingService"
             android:exported="false">
@@ -45,6 +46,8 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps">
+            <intent-filter> <action android:name="OPEN_ACTIVITY_1" /> <category android:name="android.intent.category.DEFAULT" /> </intent-filter>
+
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.futureapp.studyground.SearchPartnerActivity" />

@@ -1,6 +1,7 @@
 package com.futureapp.studyground;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -9,7 +10,7 @@ import androidx.work.WorkerParameters;
 
 public class MyWorker extends Worker {
 
-    private static final String TAG = "MyWorker";
+    private static final String TAG = "TOPIC worker: ";
 
     public MyWorker(@NonNull Context appContext, @NonNull WorkerParameters workerParams) {
         super(appContext, workerParams);

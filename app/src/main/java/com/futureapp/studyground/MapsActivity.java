@@ -31,6 +31,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.RemoteMessage;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -38,12 +42,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     double longitudeGPS,latitudeGPS;
 
+
     LocationManager locationManager;
+
+    RemoteMessage remoteMessage;
 
     DatabaseReference db;
     FirebaseAuth auth;
     String id;
-    String telefono="111";
+    String telefono="111",name;
+
+    Map<String, String> map=new HashMap<>();
+
+    MyFirebaseMessagingService fms =new MyFirebaseMessagingService();
 
     FloatingActionButton fab;
     @Override
@@ -55,6 +66,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+        remoteMessage=new RemoteMessage(getIntent().getExtras());
+        System.out.println("TOPIC rm:"+remoteMessage.getData().toString());
+
         fab=(FloatingActionButton)findViewById(R.id.fab);
 
         auth = FirebaseAuth.getInstance();
@@ -62,21 +76,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         db = FirebaseDatabase.getInstance().getReference("Users").child(id);
 
 
-        //read firebase database (real time)
-        db.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                GenericTypeIndicator<UserPojo> user = new GenericTypeIndicator<UserPojo>() {
-                };
-                UserPojo userPojo = dataSnapshot.getValue(user);
-                telefono=userPojo.getTelefono();
-            }
+        map=remoteMessage.getData();
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+        telefono=map.get("telefono");
+        longitudeGPS=Double.parseDouble(map.get("longitude"));
+        latitudeGPS=Double.parseDouble(map.get("latitude"));
+        name=map.get("name");
 
-            }
-        });
+       // fab.setImageDrawable(getDrawable(R.drawable.wpp));
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -139,10 +146,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(6.157110142127306, -75.51697254180908);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        LatLng sydney = new LatLng(latitudeGPS, longitudeGPS);
+        mMap.addMarker(new MarkerOptions().position(sydney).title("Ubicacion de "+name));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
         mMap.animateCamera(CameraUpdateFactory.zoomTo(17.0f));
+
+        System.out.println("TOPIC RM: "+latitudeGPS);
+        System.out.println("TOPIC RM: "+longitudeGPS);
     }
 
 

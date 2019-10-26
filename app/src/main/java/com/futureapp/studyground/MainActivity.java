@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
     private final int DURACION_SPLASH = 3000; // 3 segundos
 
+    MyFirebaseMessagingService fms=new MyFirebaseMessagingService();
+
 
     FirebaseAuth auth2;
     FirebaseAuth.AuthStateListener authStateListener;
@@ -66,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
             ;
         }, DURACION_SPLASH);
     }
+
+
 
 
     private void inicialize() {

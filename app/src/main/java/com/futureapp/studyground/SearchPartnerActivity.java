@@ -92,7 +92,7 @@ public class SearchPartnerActivity extends AppCompatActivity {
         materia=getIntent().getStringExtra("materiaStudy");
         option=getIntent().getStringExtra("option");
 
-        String text=getString(R.string.find_partner,option,materia);
+        String text=getString(R.string.find_partner,option,materia.toLowerCase());
 
         txtBusqueda=(TextView) findViewById(R.id.busqueda);
 
@@ -205,10 +205,10 @@ public class SearchPartnerActivity extends AppCompatActivity {
 
 
 
-        Notification notificacion=new Notification("Studyground",msg);
+        Notification notificacion=new Notification("Studyground",msg,"OPEN_ACTIVITY_1");
         Data data=new Data(latitud,longitud,name,telefono);
 
-        Sender sender=new Sender(topic,notificacion,data);
+        Sender sender=new Sender(topic,notificacion,data,true);
 
 
         System.out.println("TOPIC data: "+data.getName());
