@@ -187,7 +187,7 @@ public class SinginActivity extends AppCompatActivity {
 
 
                   if (!name.isEmpty() && !email.isEmpty() && !pwd.isEmpty() && !cpwd.isEmpty() && !programa.isEmpty() && !univ.isEmpty() && !phone.isEmpty()) {
-                      if (pwd.length() >= 1) {
+                      if (pwd.length() >= 6) {
                           if (pwd.equals(cpwd)) {
 
 
