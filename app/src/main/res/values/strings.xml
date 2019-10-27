@@ -372,8 +372,36 @@
     </string-array>
 
     <string-array name="mFisica">
+        <item>Termodinámica</item>
+        <item>Física Computacional</item>
+        <item>Física Matemática</item>
+        <item>Reto Medio</item>
+        <item>Epistemología</item>
+        <item>Mecánica Clásica</item>
+        <item>Electrónica</item>
+        <item>Funciones Especiales</item>
+        <item>Electiva de Profundización</item>
+        <item>Física Moderna</item>
+        <item>Mecánica Cuántica</item>
+        <item>Electromagnetismo</item>
+        <item>Relatividad</item>
+        <item>Instrumentación Científica</item>
+        <item>Electiva de Profundización</item>
+        <item>Mecánica Cuántica Aplicada</item>
+        <item>Electrodinámica</item>
+        <item>Física Estadística</item>
+        <item>Experimentación Avanzada</item>
+        <item>Optativa de Profundización</item>
+        <item>Reto avanzado</item>
+        <item>Materia Condensada</item>
+        <item>Sistemas Cuánticos</item>
+        <item>Óptica</item>
+        <item>Sistemas Complejos</item>
+        <item>Optativa de Profundización</item>
+        <item>Ética en Ciencias</item>
 
     </string-array>
+
 
     <string name="title_activity_study">StudyActivity</string>
     <string name="title_activity_maps">Ubicación usuario</string>
