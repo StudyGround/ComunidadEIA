@@ -10,23 +10,23 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
 
-    <string name="welcome_messages">¿Que deseas hacer hoy, %1$s?</string>
+    <string name="welcome_messages">¿Qué deseas hacer hoy, %1$s?</string>
     <string name="perfect">¡Perfecto, %1$s! </string>
     <string name="find_partner">StudyGround está buscando compañeros que quieran %1$s %2$s, <br>te notificaremos cuando alguien acepte tu solicitud, puedes salir</br>  </string>
-    <string name="studyTeach">¿Que vas a %1$s hoy?</string>
-    <string name="redireccion">Seras redirigido a elegir que materias vas a %1$s</string>
+    <string name="studyTeach">¿Qué vas a %1$s hoy?</string>
+    <string name="redireccion">Serás redirigido a elegir que materias vas a %1$s</string>
 
     <string-array name="programa">
         <item>Ingeniería de Sistemas y Computación</item>
         <item>Ingeniería Civil</item>
         <item>Ingeniería Administrativa</item>
         <item>Ingeniería Financiera</item>
-        <item>Fisica</item>
-        <item>Ingeniería Geologica</item>
+        <item>Física</item>
+        <item>Ingeniería Geológica</item>
         <item>Ingeniería Industrial</item>
-        <item>Ingeniería Mecanica</item>
-        <item>Ingeniería Mecatronica</item>
-        <item>Ingeniería Biomedica</item>
+        <item>Ingeniería Mecánica</item>
+        <item>Ingeniería Mecatrónica</item>
+        <item>Ingeniería Biomédica</item>
         <item>Ingeniería Ambiental</item>
 
     </string-array>
