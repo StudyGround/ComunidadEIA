@@ -31,8 +31,10 @@
 
     </string-array>
 
-    <string-array name="universidad">
-        <item>EIA</item>
+    <string-array name="rutas">
+        <item>Aguacatala</item>
+        <item>Exposiciciones</item>
+        <item>Rionegro</item>
     </string-array>
 
     <string-array name="mCienciasBasicas">
