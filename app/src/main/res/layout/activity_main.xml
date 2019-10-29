@@ -21,10 +21,10 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.5"
         android:layout_marginTop="50dp"
+        android:layout_weight="0.5"
         android:fontFamily="@font/raleway_extrabold_italic"
-        android:text="StudyGround"
+        android:text="Comunidad EIA"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="48sp" />

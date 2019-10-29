@@ -7,45 +7,69 @@
     android:orientation="vertical"
     tools:context=".viajes.ConductorActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        />
+
     <TextView
         android:id="@+id/colectivoEIA"
-        android:layout_width="260dp"
+        android:layout_width="match_parent"
         android:layout_height="52dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/medium"
         android:gravity="center"
         android:text="ERES CONDUCTOR"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#009688"
         android:textSize="30sp" />
 
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        app:srcCompat="@drawable/conductor" />
 
     <Spinner
         android:id="@+id/spinnerOrigen"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:fontFamily="@font/medium"
         android:layout_marginStart="20dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginEnd="20dp"
         android:entries="@array/rutasC" />
 
     <Spinner
         android:id="@+id/spinnerDestino"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/medium"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:entries="@array/rutasC" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="140dp"
-        android:layout_height="140dp" />
 
 
     <EditText
         android:id="@+id/et_mostrar_hora_picker"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="70dp"
+        android:layout_height="88dp"
+        android:layout_gravity="center"
+        android:layout_weight="0.1"
+        android:fontFamily="@font/medium"
         android:ems="10"
         android:hint="HH:MM"
         android:inputType="time" />
@@ -53,17 +77,22 @@
     <ImageButton
         android:id="@+id/ib_obtener_hora"
         android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="16dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="0.8"
         android:scaleType="fitCenter"
         android:src="@drawable/check" />
 
     <EditText
         android:id="@+id/et_costo"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="70dp"
+        android:fontFamily="@font/medium"
+        android:layout_marginEnd="20dp"
         android:ems="10"
         android:inputType="numberDecimal"
         android:text="$" />
@@ -71,7 +100,14 @@
     <Button
         android:id="@+id/btnRegistrar"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:layout_marginBottom="30dp"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="20dp"
+        android:background="#009688"
+        android:fontFamily="@font/medium"
         android:text="Subir ruta" />
 
 
