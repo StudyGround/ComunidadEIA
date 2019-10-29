@@ -2,6 +2,7 @@ package com.futureapp.studyground.viajes;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -30,6 +31,8 @@ public class MenuViajes extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+        Toolbar toolbar = findViewById(R.id.toolbar3);
+        setSupportActionBar(toolbar);
 
         auth = FirebaseAuth.getInstance();
         db = FirebaseDatabase.getInstance().getReference("Rutas");
