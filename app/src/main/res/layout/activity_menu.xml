@@ -6,35 +6,41 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="160dp"
-        android:layout_height="160dp" />
 
     <TextView
         android:id="@+id/ColectivoEIA"
-        android:layout_width="260dp"
-        android:layout_height="52dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_marginTop="300dp"
-        android:gravity="center_horizontal"
+        android:layout_margin="0dp"
+        android:gravity="center"
         android:text="¿Hoy qué eres?"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
     <Button
         android:id="@+id/btnDrive"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:text="CONDUCTOR" />
+        android:layout_width="300dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:layout_gravity="center"
+        android:background="#009688"
+        android:fontFamily="@font/medium"
+        android:text="CONDUCTOR"
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/btnPass"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginEnd="32dp"
-        android:text="PASAJERO" />
+        android:layout_width="300dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:layout_gravity="center"
+        android:layout_marginBottom="50dp"
+        android:layout_marginTop="50dp"
+        android:background="#009688"
+        android:fontFamily="@font/medium"
+        android:text="PASAJERO"
+        android:textColor="#FFFFFF" />
+
 
 </LinearLayout>
