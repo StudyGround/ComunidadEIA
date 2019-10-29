@@ -16,7 +16,7 @@
         android:layout_weight="1"
         android:background="#009688"
         android:fontFamily="@font/raleway_extrabold_italic"
-        android:text="StudyGround"
+        android:text="Comunidad EIA"
         android:textAlignment="center"
         android:textColor="#F6FDFD"
         android:textSize="48sp" />
