@@ -42,7 +42,7 @@ public class ElectMateriasActivity extends AppCompatActivity implements SearchVi
     String pwd="";
     String name="";
     String programa="";
-    String univ="";
+    String ruta="";
     String phone="";
     String validRB="no";
     String token="";
@@ -73,7 +73,7 @@ public class ElectMateriasActivity extends AppCompatActivity implements SearchVi
          pwd=getIntent().getStringExtra("pwd");
          name=getIntent().getStringExtra("name");
          programa=getIntent().getStringExtra("programa");
-         univ=getIntent().getStringExtra("univ");
+         ruta=getIntent().getStringExtra("ruta");
          phone=getIntent().getStringExtra("phone");
          validRB=getIntent().getStringExtra("radioBtn");
 
@@ -201,7 +201,7 @@ public class ElectMateriasActivity extends AppCompatActivity implements SearchVi
                     map.put("email", email);
                     map.put("pwd", pwd);
                     map.put("programa", programa);
-                    map.put("universidad", univ);
+                    map.put("ruta", ruta);
                     map.put("telefono",phone);
                     map.put("tutor",validRB);
                     map.put("token",token);
@@ -224,7 +224,9 @@ public class ElectMateriasActivity extends AppCompatActivity implements SearchVi
                                 }
 
                                 registerMaterias(materiasEscogidas);
-                                subscribeTopic(materiasEscogidas);
+                                subscribeTopic(materiasEscogidas,ruta);
+
+
 
 
 
@@ -314,7 +316,7 @@ public class ElectMateriasActivity extends AppCompatActivity implements SearchVi
     }
 
     //Suscripcion a topics de materias
-    private void subscribeTopic(final List materiasEscogidas) {
+    private void subscribeTopic(final List materiasEscogidas, final String rutaT) {
 
         for (int i=0;i<materiasEscogidas.size();i++) {
 
@@ -345,6 +347,30 @@ public class ElectMateriasActivity extends AppCompatActivity implements SearchVi
                             System.out.println("Suscrito a:"+matEscogida+" orden"+j);
 
                             if(j==materiasEscogidas.size()-1){
+                                    String rr=    rutaT
+                                        .replace(" ","_")
+                                        .replace("á","a")
+                                        .replace("é","e")
+                                        .replace("í","i")
+                                        .replace("ó","o")
+                                        .replace("ú","u")
+                                        .replace("ñ","n")
+                                        .replace(",","_")
+                                        .replace("|","I")
+                                        .replace("Á","A")
+                                        .replace("É","E")
+                                        .replace("Í","I")
+                                        .replace("Ó","O")
+                                        .replace("Ú","U")
+                                        .replace("Ñ","N");
+
+                                FirebaseMessaging.getInstance().subscribeToTopic(rr).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        System.out.println("TOPIC suscrito ruta");
+                                    }
+                                }) ;
+
                                 String msg = ("Suscrito");
                                 if (!task.isSuccessful()) {
                                     msg = ("Fallo al suscribir");

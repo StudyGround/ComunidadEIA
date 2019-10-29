@@ -215,7 +215,7 @@ public class SinginActivity extends AppCompatActivity {
                                               intent.putExtra("pwd",pwd);
                                               intent.putExtra("name",name);
                                               intent.putExtra("programa",programa);
-                                              intent.putExtra("universidad",univ);
+                                              intent.putExtra("ruta",univ);
                                               intent.putExtra("phone",phone);
                                               intent.putExtra("radioBtn",validRB);
                                               startActivity(intent);

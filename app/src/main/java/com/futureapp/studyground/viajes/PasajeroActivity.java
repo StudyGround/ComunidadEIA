@@ -1,4 +1,4 @@
-package com.example.colectivoeia;
+package com.futureapp.studyground.viajes;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 /*import com.example.colectivoeia.Models.Ruta;
 import com.example.colectivoeia.adapters.RutaAdapter;*/
+import com.futureapp.studyground.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -18,7 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class Pasajero extends AppCompatActivity {
+public class PasajeroActivity extends AppCompatActivity {
 
 
     private DatabaseReference Rutas;
@@ -34,7 +35,7 @@ public class Pasajero extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pasajero);
 
-        mTextView = (TextView) findViewById(R.id.textView9);
+
         Rutas = FirebaseDatabase.getInstance().getReference();
 
         Rutas.child("Rutas").addValueEventListener(new ValueEventListener() {
@@ -47,10 +48,7 @@ public class Pasajero extends AppCompatActivity {
                     String hora = dataSnapshot.child("hora").getValue().toString();
                     String precio = dataSnapshot.child("precio").getValue().toString();
 
-                    mTextView.setText("Desde: " + desde + " "+" "+
-                            "Hacia: " +hacia + " "+" " +
-                            "Hora: " +hora + " "+" " +
-                            "Precio: " +precio);
+
                 }
             }
 

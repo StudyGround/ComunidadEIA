@@ -36,7 +36,7 @@ public class ElectMateriasTeachActivity extends AppCompatActivity  implements Se
     String pwd="";
     String name="";
     String programa="";
-    String univ="";
+    String ruta="";
     String phone="";
     String validRB="";
 
@@ -69,7 +69,7 @@ public class ElectMateriasTeachActivity extends AppCompatActivity  implements Se
         pwd=getIntent().getStringExtra("pwd");
         name=getIntent().getStringExtra("name");
         programa=getIntent().getStringExtra("programa");
-        univ=getIntent().getStringExtra("univ");
+        ruta=getIntent().getStringExtra("ruta");
         phone=getIntent().getStringExtra("phone");
         validRB=getIntent().getStringExtra("radioBtn");
 
@@ -145,7 +145,7 @@ public class ElectMateriasTeachActivity extends AppCompatActivity  implements Se
                                 intent.putExtra("pwd",pwd);
                                 intent.putExtra("name",name);
                                 intent.putExtra("programa",programa);
-                                intent.putExtra("universidad",univ);
+                                intent.putExtra("ruta",ruta);
                                 intent.putExtra("phone",phone);
                                 intent.putExtra("radioBtn",validRB);
                                 startActivity(intent);

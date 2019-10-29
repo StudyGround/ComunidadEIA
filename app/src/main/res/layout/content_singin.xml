@@ -100,7 +100,7 @@
         android:layout_weight="1"
         android:layout_gravity="center"
         android:layout_marginLeft="0dp"
-        android:entries="@array/universidad" />
+        android:entries="@array/rutas" />
 
 
     <Spinner

@@ -37,6 +37,13 @@
         <item>Rionegro</item>
     </string-array>
 
+    <string-array name="rutasC">
+        <item>Aguacatala</item>
+        <item>Exposiciciones</item>
+        <item>Rionegro</item>
+        <item>Universidad EIA,palmas</item>
+    </string-array>
+
     <string-array name="mCienciasBasicas">
 
         <item>Fundamentos de Programación</item>

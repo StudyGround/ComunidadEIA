@@ -17,6 +17,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.futureapp.studyground.viajes.MenuViajes;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -36,6 +37,7 @@ public class ProfileMainActivity extends AppCompatActivity {
 
     private ImageButton teach;
     private ImageButton study;
+    private ImageButton viajes;
     private TextView txtWelcome;
     private TextView txtMaterias;
     private  TextView txtTeach;
@@ -149,12 +151,20 @@ public class ProfileMainActivity extends AppCompatActivity {
 
 
 
-
+        viajes=(ImageButton) findViewById(R.id.viajesButton);
         teach=(ImageButton) findViewById(R.id.teachButton);
         study=(ImageButton) findViewById(R.id.studyButton);
         txtWelcome=(TextView) findViewById(R.id.welcome);
 
 
+        viajes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(ProfileMainActivity.this, MenuViajes.class);
+                startActivity(intent);
+
+            }
+        });
 
 
         study.setOnClickListener(new View.OnClickListener() {
