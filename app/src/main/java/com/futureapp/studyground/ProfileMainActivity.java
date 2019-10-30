@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,12 +36,11 @@ import java.util.ArrayList;
 
 public class ProfileMainActivity extends AppCompatActivity {
 
-    private ImageButton teach;
-    private ImageButton study;
-    private ImageButton viajes;
+    private Button teach;
+    private Button study;
+    private Button viajes;
     private TextView txtWelcome;
     private TextView txtMaterias;
-    private  TextView txtTeach;
     private Toolbar toolbar;
 
     String token="";
@@ -87,7 +87,8 @@ public class ProfileMainActivity extends AppCompatActivity {
                         Log.d("Token", msg);
                     }
                 });
-        txtTeach=(TextView) findViewById(R.id.txtTeach);
+
+
 
         //read firebase database (real time)
         db.addValueEventListener(new ValueEventListener() {
@@ -104,7 +105,6 @@ public class ProfileMainActivity extends AppCompatActivity {
 
                 if(tutor.equals("No")){
                     teach.setVisibility(View.INVISIBLE);
-                    txtTeach.setVisibility(View.INVISIBLE);
 
                 }
 
@@ -151,9 +151,9 @@ public class ProfileMainActivity extends AppCompatActivity {
 
 
 
-        viajes=(ImageButton) findViewById(R.id.viajesButton);
-        teach=(ImageButton) findViewById(R.id.teachButton);
-        study=(ImageButton) findViewById(R.id.studyButton);
+        viajes=(Button) findViewById(R.id.viajesButton);
+        teach=(Button) findViewById(R.id.teachButton);
+        study=(Button) findViewById(R.id.studyButton);
         txtWelcome=(TextView) findViewById(R.id.welcome);
 
 
