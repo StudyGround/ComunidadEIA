@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,6 +33,8 @@ import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class PasajeroActivity extends AppCompatActivity {
 
@@ -47,8 +50,8 @@ public class PasajeroActivity extends AppCompatActivity {
     String destino,origen,precio,telefono="",nombre,hora,msg;
 
     ArrayList<String> dataRutas=new ArrayList<>();
-
-
+    ArrayList<String> telefonos=new ArrayList<>();
+    Map<String,String> map=new HashMap<>();
 
 
     @Override
@@ -79,9 +82,13 @@ public class PasajeroActivity extends AppCompatActivity {
                 return super.getRef(position);
             }
 
+            @Override
+            public int getItemViewType(int position) {
+                return super.getItemViewType(position);
+            }
 
             @Override
-            protected void populateViewHolder(ViajesHolder viajesHolder, viajesPojo viajesPojo, int i) {
+            protected void populateViewHolder(ViajesHolder viajesHolder, viajesPojo viajesPojo, final int i) {
                 viajesHolder.setDestino(viajesPojo.getDestino());
                 viajesHolder.setHora(viajesPojo.getHora());
                 viajesHolder.setOrigen(viajesPojo.getOrigen());
@@ -89,7 +96,15 @@ public class PasajeroActivity extends AppCompatActivity {
                 viajesHolder.setTelefono(viajesPojo.getTelefono());
                 viajesHolder.setNombre(viajesPojo.getNombre());
 
-                telefono=viajesPojo.getTelefono();
+
+
+                telefonos.add(viajesPojo.getTelefono());
+
+                setTelefonos(telefonos);
+
+                map.put((Integer.toString(i)),viajesPojo.getTelefono());
+
+                System.out.println("RUTAS telefonos array list: "+telefonos.toString());
 
             }
 
@@ -101,28 +116,17 @@ public class PasajeroActivity extends AppCompatActivity {
 
         recyclerDB.setAdapter(mAdapter);
 
-        recyclerDB.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
-            @Override
-            public boolean onInterceptTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
-                System.out.println("RUTAS 2 telefono en touch object: "+telefono);
-                return false;
-            }
-
-            @Override
-            public void onTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
-                System.out.println("RUTAS telefono en touch object: "+telefono);
-            }
-
-            @Override
-            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-                System.out.println("RUTAS 3 telefono en touch object: "+telefono);
-            }
-        });
 
 
     }
 
+    public ArrayList<String> getTelefonos() {
+        return telefonos;
+    }
 
+    public void setTelefonos(ArrayList<String> telefonos) {
+        this.telefonos = telefonos;
+    }
 
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu, menu);

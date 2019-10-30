@@ -8,14 +8,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.futureapp.studyground.R;
 
-public class ViajesHolder extends RecyclerView.ViewHolder {
+public class ViajesHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-    private View mView;
+    public View mView;
 
     public ViajesHolder(@NonNull View itemView) {
         super(itemView);
 
         mView=itemView;
+
+        itemView.setOnClickListener(this);
+
     }
 
     public void setDestino(String destino) {
@@ -51,5 +54,9 @@ public class ViajesHolder extends RecyclerView.ViewHolder {
     }
 
 
-
+    @Override
+    public void onClick(View view) {
+        System.out.println("RUTAS onClick: " + getAdapterPosition());
+       view.setId(getAdapterPosition());
+    }
 }

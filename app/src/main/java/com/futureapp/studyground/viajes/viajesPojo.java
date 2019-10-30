@@ -7,6 +7,8 @@ import java.util.Map;
 public class viajesPojo {
     String origen,destino,telefono,precio,hora,nombre;
 
+    ArrayList<String> data=new ArrayList<>();
+
     public viajesPojo() {
 
     }
@@ -18,6 +20,14 @@ public class viajesPojo {
         this.precio = precio;
         this.hora = hora;
         this.nombre = nombre;
+    }
+
+    public ArrayList<String> getData() {
+        return data;
+    }
+
+    public void setData(ArrayList<String> data) {
+        this.data = data;
     }
 
     public String getNombre() { return nombre; }

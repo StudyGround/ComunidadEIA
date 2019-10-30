@@ -155,7 +155,7 @@ public class ConductorActivity extends AppCompatActivity {
                         tDestino=subscribeTopic(destino);
                         tOrigen=subscribeTopic(origen);
 
-                        String msg=name+" abrio ruta desde: "+origen+" hasta: "+destino;
+                        String msg=name+" abrió ruta desde: "+origen+" hasta: "+destino;
 
                         registarRuta(origen,destino,horaMap,precio,telefono,name);
                         enviarNotificacion("/topics/"+tDestino,msg,telefono,latitude,longitude,name);
