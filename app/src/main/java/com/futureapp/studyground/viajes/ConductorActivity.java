@@ -318,6 +318,7 @@ public class ConductorActivity extends AppCompatActivity {
 
                     Intent intent=new Intent(ConductorActivity.this, ProfileMainActivity.class);
                     startActivity(intent);
+                    finish();
 
                 }else{
                     Toast.makeText(getApplicationContext(),"Mensaje NO enviado", LENGTH_SHORT).show();
