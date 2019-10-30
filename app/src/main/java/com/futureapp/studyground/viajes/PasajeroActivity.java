@@ -184,7 +184,7 @@ public class PasajeroActivity extends AppCompatActivity {
                         hora=viajesPojo.getHora();
 
 
-                        msg=    "Nombre: "+nombre+" ,telefono: "+telefono+
+                        msg=    "Nombre: "+nombre+" ,teléfono: "+telefono+
                                 "\n Origen: "+origen+" ,destino: "+destino+
                                 "\n Hora: "+hora +
                                 "\n valor:"+precio;
