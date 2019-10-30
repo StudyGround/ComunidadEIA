@@ -104,21 +104,21 @@
 
         <activity
             android:name=".viajes.MenuViajes"
-            android:label="@string/title_activity_login"
+            android:label="Viajar"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"
             tools:ignore="DuplicateActivity" />
 
         <activity
             android:name=".viajes.ConductorActivity"
-            android:label="@string/title_activity_login"
+            android:label="Conductor"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"
             tools:ignore="DuplicateActivity" />
 
         <activity
             android:name=".viajes.PasajeroActivity"
-            android:label="@string/title_activity_login"
+            android:label="Pasajero"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"
             tools:ignore="DuplicateActivity" />

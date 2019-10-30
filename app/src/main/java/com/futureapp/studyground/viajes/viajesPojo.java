@@ -5,24 +5,24 @@ import java.util.List;
 import java.util.Map;
 
 public class viajesPojo {
-    String origen,destino,telefono,precio,hora;
-
-
-
-    ArrayList<String> list;
-
+    String origen,destino,telefono,precio,hora,nombre;
 
     public viajesPojo() {
 
     }
 
-    public ArrayList<String> getList() {
-        return list;
+    public viajesPojo(String origen, String destino, String telefono, String precio, String hora, String nombre) {
+        this.origen = origen;
+        this.destino = destino;
+        this.telefono = telefono;
+        this.precio = precio;
+        this.hora = hora;
+        this.nombre = nombre;
     }
 
-    public void setList(ArrayList<String> list) {
-        this.list = list;
-    }
+    public String getNombre() { return nombre; }
+
+    public void setNombre(String nombre) { this.nombre = nombre; }
 
     public String getOrigen() {
         return origen;
@@ -62,6 +62,18 @@ public class viajesPojo {
 
     public void setHora(String hora) {
         this.hora = hora;
+    }
+
+    @Override
+    public String toString() {
+        return "viajesPojo{" +
+                "origen='" + origen + '\'' +
+                ", destino='" + destino + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", precio='" + precio + '\'' +
+                ", hora='" + hora + '\'' +
+                ", nombre='" + nombre + '\'' +
+                '}';
     }
 }
 

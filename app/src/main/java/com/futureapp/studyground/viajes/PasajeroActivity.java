@@ -12,17 +12,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 import android.widget.TextView;
 
 /*import com.example.colectivoeia.Models.Ruta;
 import com.example.colectivoeia.adapters.RutaAdapter;*/
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.futureapp.studyground.LoginActivity;
 import com.futureapp.studyground.R;
+import com.futureapp.studyground.UserPojo;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -32,11 +36,17 @@ public class PasajeroActivity extends AppCompatActivity {
 
     private DatabaseReference Rutas;
 
+    ArrayList<ArrayList<String>> listaRutas=new ArrayList<>();
+
+    RecyclerView recyclerDB;
+
     AlertDialog.Builder builder;
 
-    /*private RutaAdapter mAdapter;
-    private RecyclerView mRecyclerView;
-    private ArrayList<Ruta> mRutasList = new ArrayList<>();*/
+    String destino,origen,precio,telefono,nombre,hora,msg;
+
+    ArrayList<String> dataRutas=new ArrayList<>();
+
+
 
 
     @Override
@@ -49,35 +59,45 @@ public class PasajeroActivity extends AppCompatActivity {
         builder = new AlertDialog.Builder(this);
 
 
-        Rutas = FirebaseDatabase.getInstance().getReference();
 
-        Rutas.child("Rutas").addValueEventListener(new ValueEventListener() {
+
+        Rutas =FirebaseDatabase.getInstance().getReference().child("Rutas");
+
+        recyclerDB = (RecyclerView) findViewById(R.id.recyclerDB);
+
+        recyclerDB.setHasFixedSize(true);
+        recyclerDB.setLayoutManager(new LinearLayoutManager(this));
+
+        final FirebaseRecyclerAdapter mAdapter = new FirebaseRecyclerAdapter<viajesPojo, ViajesHolder>(
+                viajesPojo.class, R.layout.activity_recycler, ViajesHolder.class, Rutas) {
+
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            protected void populateViewHolder(ViajesHolder viajesHolder, viajesPojo viajesPojo, int i) {
+                viajesHolder.setDestino(viajesPojo.getDestino());
+                viajesHolder.setHora(viajesPojo.getHora());
+                viajesHolder.setOrigen(viajesPojo.getOrigen());
+                viajesHolder.setPrecio(viajesPojo.getPrecio());
+                viajesHolder.setTelefono(viajesPojo.getTelefono());
+                viajesHolder.setNombre(viajesPojo.getNombre());
 
-                if(dataSnapshot.exists()){
-                    String desde = dataSnapshot.child("desde").getValue().toString();
-                    String hacia = dataSnapshot.child("hacia").getValue().toString();
-                    String hora = dataSnapshot.child("hora").getValue().toString();
-                    String precio = dataSnapshot.child("precio").getValue().toString();
 
 
-                }
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
+            public viajesPojo getItem(int position) {
+                return super.getItem(position);
             }
-        });
+        };
 
-        /*mRecyclerView = (RecyclerView) findViewById(R.id.recyclerViewRutas);
+        recyclerDB.setAdapter(mAdapter);
 
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        getRutasfromFirebase();*/
+
 
     }
+
+
 
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu, menu);
@@ -114,22 +134,50 @@ public class PasajeroActivity extends AppCompatActivity {
     }
 
 
-    /*private void getRutasfromFirebase (){
+    private void getRutasfromFirebase (){
         Rutas.child("Rutas").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()){
 
-                    mRutasList.clear();
+                    listaRutas.clear();
 
                     for(DataSnapshot ds: dataSnapshot.getChildren()) {
-                        String desde = ds.child("desde").getValue().toString();
-                        mRutasList.add(new Ruta(desde));
+                        GenericTypeIndicator<viajesPojo> user=new GenericTypeIndicator<viajesPojo>() {};
+                        viajesPojo viajesPojo=ds.getValue(user);
 
+                        nombre=viajesPojo.getNombre();
+                        telefono=viajesPojo.getTelefono();
+                        origen=viajesPojo.getOrigen();
+                        destino=viajesPojo.getDestino();
+                        precio=viajesPojo.getPrecio();
+
+                        hora=viajesPojo.getHora();
+
+
+                        msg=    "Nombre: "+nombre+" ,telefono: "+telefono+
+                                "\n Origen: "+origen+" ,destino: "+destino+
+                                "\n Hora: "+hora +
+                                "\n valor:"+precio;
+
+                        System.out.println("RUTAS: msg: "+msg);
+
+                        //txtRuta.setText(msg);
+
+                        dataRutas.add(destino);
+                        dataRutas.add(origen);
+                        dataRutas.add(precio);
+                        dataRutas.add(nombre);
+                        dataRutas.add(hora);
+                        dataRutas.add(telefono);
+                        dataRutas.add(msg);
+
+                        listaRutas.add(dataRutas);
+
+                        System.out.println("RUTAS: "+listaRutas);
                     }
 
-                    mAdapter = new RutaAdapter(mRutasList, R.layout.rutas_view);
-                    mRecyclerView.setAdapter(mAdapter);
+
                 }
             }
 
@@ -139,5 +187,5 @@ public class PasajeroActivity extends AppCompatActivity {
             }
         });
 
-    }*/
+    }
 }

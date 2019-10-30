@@ -62,20 +62,8 @@ public class MenuViajes extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                db.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        GenericTypeIndicator<viajesPojo> user=new GenericTypeIndicator<viajesPojo>() {};
-                        viajesPojo userPojo=dataSnapshot.getValue(user);
-
-
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
+                Intent intent=new Intent(MenuViajes.this, PasajeroActivity.class);
+                startActivity(intent);
             }
         });
 

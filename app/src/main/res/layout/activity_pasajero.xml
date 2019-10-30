@@ -28,14 +28,10 @@
         android:textColor="#009688"
         android:textSize="24sp" />
 
-    <ListView
-        android:id="@+id/listViewCB"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerDB"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="8">
-
-    </ListView>
+        android:layout_height="match_parent" />
 
 
 </LinearLayout>

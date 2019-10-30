@@ -157,7 +157,7 @@ public class ConductorActivity extends AppCompatActivity {
 
                         String msg=name+" abrio ruta desde: "+origen+" hasta: "+destino;
 
-                        registarRuta(origen,destino,horaMap,precio,telefono);
+                        registarRuta(origen,destino,horaMap,precio,telefono,name);
                         enviarNotificacion("/topics/"+tDestino,msg,telefono,latitude,longitude,name);
                         enviarNotificacion("/topics/"+tOrigen,msg,telefono,latitude,longitude,name);
 
@@ -238,7 +238,7 @@ public class ConductorActivity extends AppCompatActivity {
     }
 
 
-   public void registarRuta(String origen, String destino, String hora, String precio, String telefono) {
+   public void registarRuta(String origen, String destino, String hora, String precio, String telefono,String nombre) {
 
 
 
@@ -251,6 +251,7 @@ public class ConductorActivity extends AppCompatActivity {
             map.put("hora",hora);
             map.put("precio",precio);
             map.put("telefono",telefono);
+            map.put("nombre",nombre);
 
             Rutas.child(telefono).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
