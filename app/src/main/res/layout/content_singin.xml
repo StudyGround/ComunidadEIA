@@ -11,30 +11,15 @@
     tools:showIn="@layout/activity_singin">
 
 
-
-
-    <TextView
-        android:id="@+id/subtitle"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginBottom="5dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="5dp"
-        android:fontFamily="@font/medium"
-        android:text="Registro"
-        android:textAlignment="gravity"
-        android:textColor="#009688"
-        android:textSize="30sp" />
-
     <EditText
         android:id="@+id/txtemail"
-        android:layout_width="351dp"
+        android:layout_width="match_parent"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="1.1"
         android:layout_gravity="center"
-        android:layout_marginLeft="0dp"
         android:ems="10"
         android:fontFamily="@font/medium"
         android:hint="Correo Electrónico"
@@ -43,11 +28,11 @@
 
     <EditText
         android:id="@+id/txtpwd"
-        android:layout_width="351dp"
+        android:layout_width="match_parent"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_gravity="center"
-        android:layout_marginLeft="0dp"
+        android:layout_weight="1.1"
         android:ems="10"
         android:fontFamily="@font/medium"
         android:hint="Contraseña"
@@ -56,10 +41,11 @@
 
     <EditText
         android:id="@+id/txtcPwd"
-        android:layout_width="351dp"
+        android:layout_width="match_parent"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_gravity="center"
+        android:layout_weight="1.1"
         android:layout_marginLeft="0dp"
         android:ems="10"
         android:fontFamily="@font/medium"
@@ -69,11 +55,11 @@
 
     <EditText
         android:id="@+id/txtname"
-        android:layout_width="351dp"
+        android:layout_width="match_parent"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_gravity="center"
-        android:layout_marginLeft="0dp"
+        android:layout_weight="1.1"
         android:ems="10"
         android:fontFamily="@font/medium"
         android:hint="Nombre completo"
@@ -82,33 +68,62 @@
 
     <EditText
         android:id="@+id/txtPhone"
-        android:layout_width="351dp"
+        android:layout_width="match_parent"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="1.1"
         android:layout_gravity="center"
         android:layout_marginLeft="0dp"
         android:ems="10"
         android:fontFamily="@font/medium"
         android:hint="Teléfono"
         android:inputType="phone"
+        android:layout_marginBottom="5dp"
         android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="15dp"
+        android:layout_weight="0.5"
+        android:fontFamily="@font/medium"
+        android:text="Ruta de mayor frecuencia"
+        android:textColor="#000005" />
 
     <Spinner
         android:id="@+id/spinuniversidad"
-        android:layout_width="351dp"
+        android:layout_width="match_parent"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:fontFamily="@font/medium"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:layout_marginBottom="5dp"
         android:layout_gravity="center"
         android:layout_marginLeft="0dp"
         android:entries="@array/rutas" />
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="15dp"
+        android:layout_weight="0.5"
+        android:fontFamily="@font/medium"
+        android:text="Programa"
+        android:textColor="#000005" />
 
 
     <Spinner
         android:id="@+id/spinprograma"
-        android:layout_width="351dp"
+        android:layout_width="match_parent"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:layout_gravity="center"
+        android:fontFamily="@font/medium"
         android:layout_marginLeft="0dp"
         android:entries="@array/programa" />
 
@@ -169,7 +184,7 @@
         android:layout_marginLeft="0dp"
         android:layout_marginTop="5dp"
         android:backgroundTint="#009688"
-        android:text="Eleccion materias"
+        android:text="Elección de materias"
         android:textColor="#FCFFFFFF" />
 
     <Button

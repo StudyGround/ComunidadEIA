@@ -20,7 +20,7 @@
         android:id="@+id/colectivoEIA"
         android:layout_width="match_parent"
         android:layout_height="52dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:fontFamily="@font/medium"
         android:gravity="center"
         android:text="ERES CONDUCTOR"
@@ -38,6 +38,15 @@
         android:layout_weight="2"
         app:srcCompat="@drawable/conductor" />
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.4"
+        android:layout_marginStart="15dp"
+        android:fontFamily="@font/medium"
+        android:text="Desde" />
+
     <Spinner
         android:id="@+id/spinnerOrigen"
         android:layout_width="match_parent"
@@ -48,6 +57,15 @@
         android:layout_marginBottom="10dp"
         android:layout_marginEnd="20dp"
         android:entries="@array/rutasC" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.4"
+        android:layout_marginStart="15dp"
+        android:fontFamily="@font/medium"
+        android:text="Hasta" />
 
     <Spinner
         android:id="@+id/spinnerDestino"
@@ -61,6 +79,15 @@
         android:entries="@array/rutasC" />
 
 
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.4"
+        android:layout_marginStart="15dp"
+        android:fontFamily="@font/medium"
+        android:text="Hora de salida" />
+
     <EditText
         android:id="@+id/et_mostrar_hora_picker"
         android:layout_width="match_parent"
@@ -68,7 +95,7 @@
         android:layout_marginStart="20dp"
         android:layout_height="0dp"
         android:layout_gravity="center"
-        android:layout_weight="0.8"
+        android:layout_weight="1"
         android:fontFamily="@font/medium"
         android:ems="10"
         android:hint="HH:MM"
@@ -87,11 +114,20 @@
         android:scaleType="fitCenter"
         android:src="@android:drawable/ic_lock_idle_alarm" />
 
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.4"
+        android:layout_marginStart="15dp"
+        android:fontFamily="@font/medium"
+        android:text="Valor" />
+
     <EditText
         android:id="@+id/et_costo"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.8"
+        android:layout_weight="1"
         android:layout_marginStart="20dp"
         android:fontFamily="@font/medium"
         android:layout_marginEnd="20dp"
