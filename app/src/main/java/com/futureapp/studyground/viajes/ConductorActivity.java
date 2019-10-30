@@ -28,6 +28,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.futureapp.studyground.LoginActivity;
+import com.futureapp.studyground.ProfileMainActivity;
 import com.futureapp.studyground.R;
 import com.futureapp.studyground.SearchPartnerActivity;
 import com.futureapp.studyground.UserPojo;
@@ -314,6 +315,10 @@ public class ConductorActivity extends AppCompatActivity {
                 if(response.isSuccessful()){
                     Toast.makeText(getApplicationContext(),"Mensaje enviado",Toast.LENGTH_LONG).show();
                     System.out.println("TOPIC MENSAJE ENVIADO");
+
+                    Intent intent=new Intent(ConductorActivity.this, ProfileMainActivity.class);
+                    startActivity(intent);
+
                 }else{
                     Toast.makeText(getApplicationContext(),"Mensaje NO enviado", LENGTH_SHORT).show();
                     System.out.println("TOPIC MENSAJE NO ENVIADO");

@@ -1,5 +1,7 @@
 package com.futureapp.studyground.viajes;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.view.View;
 import android.widget.TextView;
 
@@ -7,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.futureapp.studyground.R;
+
 
 public class ViajesHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
@@ -57,6 +60,7 @@ public class ViajesHolder extends RecyclerView.ViewHolder implements View.OnClic
     @Override
     public void onClick(View view) {
         System.out.println("RUTAS onClick: " + getAdapterPosition());
-       view.setId(getAdapterPosition());
+        /*Uri uri = Uri.parse("https://wa.me/57");
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);*/
     }
 }
