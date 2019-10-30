@@ -45,7 +45,7 @@ public class ViajesHolder extends RecyclerView.ViewHolder implements View.OnClic
 
     public void setTelefono(String telefono) {
         TextView field = (TextView) mView.findViewById(R.id.lblTelefono);
-        field.setText("Telefono: "+telefono);
+        field.setText("Teléfono: "+telefono);
     }
 
     public void setNombre(String nombre) {
