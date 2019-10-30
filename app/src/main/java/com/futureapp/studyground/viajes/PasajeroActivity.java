@@ -12,8 +12,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /*import com.example.colectivoeia.Models.Ruta;
 import com.example.colectivoeia.adapters.RutaAdapter;*/
@@ -42,7 +44,7 @@ public class PasajeroActivity extends AppCompatActivity {
 
     AlertDialog.Builder builder;
 
-    String destino,origen,precio,telefono,nombre,hora,msg;
+    String destino,origen,precio,telefono="",nombre,hora,msg;
 
     ArrayList<String> dataRutas=new ArrayList<>();
 
@@ -72,6 +74,13 @@ public class PasajeroActivity extends AppCompatActivity {
                 viajesPojo.class, R.layout.activity_recycler, ViajesHolder.class, Rutas) {
 
             @Override
+            public DatabaseReference getRef(int position) {
+                System.out.println("RUTAS 2 telefono en touch object: "+telefono);
+                return super.getRef(position);
+            }
+
+
+            @Override
             protected void populateViewHolder(ViajesHolder viajesHolder, viajesPojo viajesPojo, int i) {
                 viajesHolder.setDestino(viajesPojo.getDestino());
                 viajesHolder.setHora(viajesPojo.getHora());
@@ -80,7 +89,7 @@ public class PasajeroActivity extends AppCompatActivity {
                 viajesHolder.setTelefono(viajesPojo.getTelefono());
                 viajesHolder.setNombre(viajesPojo.getNombre());
 
-
+                telefono=viajesPojo.getTelefono();
 
             }
 
@@ -92,7 +101,23 @@ public class PasajeroActivity extends AppCompatActivity {
 
         recyclerDB.setAdapter(mAdapter);
 
+        recyclerDB.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+            @Override
+            public boolean onInterceptTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
+                System.out.println("RUTAS 2 telefono en touch object: "+telefono);
+                return false;
+            }
 
+            @Override
+            public void onTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
+                System.out.println("RUTAS telefono en touch object: "+telefono);
+            }
+
+            @Override
+            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+                System.out.println("RUTAS 3 telefono en touch object: "+telefono);
+            }
+        });
 
 
     }

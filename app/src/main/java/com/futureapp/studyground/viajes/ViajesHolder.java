@@ -23,29 +23,31 @@ public class ViajesHolder extends RecyclerView.ViewHolder {
         field.setText(destino);
     }
 
-    public void setHora(String hora) {
-        TextView field = (TextView) mView.findViewById(R.id.lblHora);
-        field.setText(hora);
-    }
 
     public void setOrigen(String origen) {
         TextView field = (TextView) mView.findViewById(R.id.lblOrigen);
-        field.setText(origen);
+        field.setText("Desde: "+origen);
     }
+
+    public void setHora(String hora) {
+        TextView field = (TextView) mView.findViewById(R.id.lblHora);
+        field.setText("Hora: "+hora);
+    }
+
 
     public void setPrecio(String precio) {
         TextView field = (TextView) mView.findViewById(R.id.lblPrecio);
-        field.setText(precio);
+        field.setText("Valor: "+precio);
     }
 
     public void setTelefono(String telefono) {
         TextView field = (TextView) mView.findViewById(R.id.lblTelefono);
-        field.setText(telefono);
+        field.setText("Telefono: "+telefono);
     }
 
     public void setNombre(String nombre) {
         TextView field = (TextView) mView.findViewById(R.id.lblNombre);
-        field.setText(nombre);
+        field.setText("Nombre: "+nombre);
     }
 
 
