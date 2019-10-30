@@ -22,7 +22,7 @@
         android:background="#009688"
         android:fontFamily="@font/raleway_extrabold_italic"
         android:paddingBottom="40dp"
-        android:text="StudyGround"
+        android:text="Comunidad EIA"
         android:textAlignment="center"
         android:textColor="#F5F8F8"
         android:textSize="48sp" />
@@ -31,7 +31,7 @@
         android:id="@+id/textTwice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="25dp"
         android:fontFamily="@font/medium"
         android:text="¿Qué vas a estudiar hoy?"
         android:textAlignment="center"
