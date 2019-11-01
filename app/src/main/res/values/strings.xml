@@ -35,13 +35,16 @@
         <item>Aguacatala</item>
         <item>Exposiciciones</item>
         <item>Rionegro</item>
+        <item>Glorieta Las Palmas</item>
     </string-array>
 
     <string-array name="rutasC">
         <item>Aguacatala</item>
         <item>Exposiciciones</item>
         <item>Rionegro</item>
+        <item>Glorieta Las Palmas</item>
         <item>Universidad EIA - Palmas</item>
+        
     </string-array>
 
     <string-array name="mCienciasBasicas">
